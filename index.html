@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VITALY KENIN</title>
+    
+    <!-- Open Graph мета-теги для отображения при наведении / шаринге -->
+    <meta property="og:title" content="VITALY KENIN - 3D-МОДЕЛИРОВАНИЕ И ВИЗУАЛИЗАЦИЯ ПРОЕКТОВ">
+    <meta property="og:description" content="Разработка 3D-дизайна и визуальных систем цифровых и печатных продуктов. Полный цикл производства — от идеи до результата.">
+    <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23222629'/%3E%3Ctext x='60' y='200' font-family='Inter' font-size='48' fill='%23ffa500' font-weight='bold'%3EVITALY KENIN%3C/text%3E%3Ctext x='60' y='300' font-family='Inter' font-size='32' fill='%23F0F0F0'%3E3D-МОДЕЛИРОВАНИЕ%3C/text%3E%3Ctext x='60' y='380' font-family='Inter' font-size='32' fill='%23F0F0F0'%3EИ ВИЗУАЛИЗАЦИЯ ПРОЕКТОВ%3C/text%3E%3C/svg%3E">
+    <meta property="og:url" content="https://vitaly-kenin.portfolio">
+    <meta property="og:type" content="website">
+    
+    <!-- Фавикон -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23222629'/%3E%3Ctext x='20' y='68' font-family='Inter' font-size='60' fill='%23ffa500' font-weight='bold'%3EVK%3C/text%3E%3C/svg%3E">
+    
+    <!-- Подключаем шрифты Inter (основной) и Sora (для логотипа) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Sora:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* === ГЛОБАЛЬНЫЕ СТИЛИ — палитра сохранена === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #222629;
+            color: #AAAAAA;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            line-height: 1.5;
+            letter-spacing: 0.02em;
+            min-height: 100vh;
+        }
+
+        /* легкая зернистость фона (поверх всего) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSIzIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNmKSIgb3BhY2l0eT0iMC4wMjUiIC8+PC9zdmc+');
+            pointer-events: none;
+            opacity: 0.3;
+            z-index: 9999;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #ffa500;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        /* === ДВУХКОЛОНОЧНАЯ СТРУКТУРА: МЕНЮ СПРАВА === */
+        .container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* --- ПРАВАЯ ПАНЕЛЬ (МЕНЮ) --- */
+        .side-panel {
+            width: 300px;
+            padding: 2rem 1.5rem;
+            background-color: #191a1c;
+            border-left: 1px solid #3a3a3a;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 100;
+            box-shadow: -4px 0 15px rgba(0,0,0,0.7);
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            transition: transform 0.2s ease;
+        }
+        .side-panel::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* скрытие панели (уезжает вправо) */
+        body.menu-hidden .side-panel {
+            transform: translateX(100%);
+        }
+        body.menu-hidden .main-content {
+            margin-right: 0;
+        }
+
+        /* Логотип — шрифт Sora, кликабельный */
+        .logo {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+            border-bottom: 1px solid #3a3a3a;
+            padding-bottom: 0.8rem;
+            color: #F0F0F0;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .logo:hover {
+            color: #ffa500;
+        }
+
+        .nav-section {
+            margin-bottom: 1.2rem;
+        }
+
+        .nav-item {
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #AAAAAA;
+            line-height: 1.2;
+        }
+        .nav-item.active a {
+            color: #ffa500;
+            font-weight: 400;
+        }
+
+        .separator {
+            height: 1px;
+            background: #3a3a3a;
+            margin: 1rem 0 1.2rem 0;
+        }
+
+        /* подвал в меню — текст по центру */
+        .micro-text {
+            font-size: 0.7rem;
+            color: #6b6b6b;
+            margin-top: auto;
+            border-top: 1px solid #3a3a3a;
+            padding-top: 0.8rem;
+            text-align: center;
+        }
+
+        /* --- ОСНОВНОЙ КОНТЕНТ (слева) --- */
+        .main-content {
+            flex: 1;
+            margin-right: 300px;
+            padding: 2.8rem 3rem;
+            background-color: #222629;          /* базовый цвет, будет перекрываться фоном ID */
+            display: flex;
+            flex-direction: column;
+            transition: margin-right 0.2s, background-image 1s ease; /* плавная смена фона */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* заголовки страниц — без оранжевых полосок */
+        .page-headline {
+            font-size: 0.85rem;
+            color: #ffa500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        /* --- СТИЛИ ДЛЯ СТРАНИЦЫ ID --- */
+        .id-page {
+            position: relative;
+            margin-bottom: 2rem;
+            /* фоном управляем через main-content, здесь не нужно */
+        }
+
+        /* карточка: радиус скругления 6px */
+        .id-card {
+            background: rgba(25, 26, 28, 0.8);
+            border-radius: 6px;
+            padding: 2.5rem 2.5rem;
+            border: 1px solid #3a3a3a;
+            backdrop-filter: blur(2px);
+            max-width: 1100px;
+            width: fit-content;
+        }
+
+        .id-title {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #ffa500;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .id-title-second {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: #ffa500;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-top: 0.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .id-subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #F0F0F0;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        /* теги: линия на всю ширину карточки */
+        .id-tags {
+            font-size: 1rem;
+            color: #F0F0F0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #ffa500;
+            padding-bottom: 1rem;
+            display: block;
+            width: 100%;
+            white-space: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .id-description {
+            max-width: 720px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #AAAAAA;
+        }
+
+        /* --- ГАЛЕРЕЯ для страниц PROJECTS, PROCESSES, ALGORITHM, CONNECT --- */
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .gallery-main {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #2a2d30;
+            border: 1px solid #3a3a3a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .gallery-main-image {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #6b6b6b;
+            text-transform: uppercase;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 0.5rem 0;
+        }
+
+        .gallery-nav button {
+            background: #191a1c;
+            border: 1px solid #3a3a3a;
+            color: #AAAAAA;
+            font-size: 1.2rem;
+            padding: 0.3rem 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .gallery-nav button:hover {
+            border-color: #ffa500;
+            color: #ffa500;
+        }
+
+        .gallery-thumbs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        .thumb-item {
+            width: 70px;
+            height: 70px;
+            background-color: #2a2d30;
+            border: 1px solid #3a3a3a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #6b6b6b;
+            cursor: pointer;
+            transition: 0.2s;
+            text-transform: uppercase;
+        }
+
+        .thumb-item:hover,
+        .thumb-item.active-thumb {
+            border-color: #ffa500;
+            color: #ffa500;
+        }
+
+        /* --- СТИЛИ ДЛЯ СТРАНИЦЫ PROTOCOL_SPECIFICATIONS --- */
+        .protocol-page {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .protocol-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            border: 1px solid #ffa500;
+            background: transparent;
+            color: #AAAAAA;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            padding: 0.6rem 1.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            background: #ffa500;
+            color: #191a1c;
+            border-color: #ffa500;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            border: 1px solid #3a3a3a;
+            background: #2a2d30;
+        }
+
+        iframe.pdf-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            display: block;
+        }
+
+        /* === КНОПКА ГАМБУРГЕР === */
+        .menu-toggle {
+            position: fixed;
+            top: 1.2rem;
+            right: 1.2rem;
+            z-index: 1000;
+            background: #191a1c;
+            border: 1px solid #3a3a3a;
+            color: #AAAAAA;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            border-radius: 0;
+            transition: background 0.2s;
+        }
+        .menu-toggle:hover {
+            background: #2a2d30;
+            color: #ffa500;
+        }
+
+        /* === АДАПТАЦИЯ === */
+        @media screen and (max-width: 900px) {
+            .side-panel { width: 260px; padding: 1.5rem; }
+            .main-content { margin-right: 260px; padding: 2rem 1.5rem; }
+        }
+
+        @media screen and (max-width: 700px) {
+            .side-panel {
+                width: 80%;
+                max-width: 320px;
+                padding: 1.5rem;
+            }
+            .main-content {
+                margin-right: 0;
+                padding: 5rem 1.2rem 2rem;
+            }
+            .id-title,
+            .id-title-second {
+                font-size: 1.8rem;
+            }
+            .id-subtitle {
+                font-size: 1.2rem;
+            }
+            .id-card {
+                padding: 1.5rem 1.2rem;
+                max-width: 100%;
+            }
+            .id-tags {
+                font-size: 0.75rem;
+            }
+            iframe.pdf-iframe { height: 400px; }
+            .protocol-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .download-btn { white-space: normal; }
+        }
+
+        @media screen and (max-width: 480px) {
+            .id-tags {
+                font-size: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Кнопка гамбургер -->
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <div class="container">
+        <!-- ПРАВАЯ ПАНЕЛЬ МЕНЮ -->
+        <div class="side-panel" id="sidePanel">
+            <!-- Логотип кликабельный и ведёт на ID -->
+            <div class="logo" id="logoLink">VITALY KENIN</div>
+            
+            <div class="nav-section">
+                <div class="nav-item" id="nav-page0"><a href="page0.html">ID</a></div>
+                <div class="nav-item" id="nav-page1"><a href="page1.html">PROJECTS</a></div>
+                <div class="nav-item" id="nav-page2"><a href="page2.html">PROCESSES</a></div>
+                <div class="nav-item" id="nav-page3"><a href="page3.html">ALGORITHM</a></div>
+                <div class="nav-item" id="nav-page4"><a href="page4.html">CONNECT</a></div>
+                <div class="nav-item" id="nav-page5"><a href="page5.html">PROTOCOL_SPECIFICATIONS</a></div>
+            </div>
+
+            <div class="separator"></div>
+            <div class="micro-text">© VITALY KENIN – 2026</div>
+        </div>
+
+        <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <div class="main-content" id="mainContent">
+            <div id="page-content-container"></div>
+        </div>
+    </div>
+
+    <script>
+        // --- ДАННЫЕ ДЛЯ 6 СТРАНИЦ ---
+        const pages = [
+            { id: 'id', title: 'ID', type: 'id' },
+            { id: 'projects', title: 'PROJECTS', type: 'gallery' },
+            { id: 'processes', title: 'PROCESSES', type: 'gallery' },
+            { id: 'algorithm', title: 'ALGORITHM', type: 'gallery' },
+            { id: 'connect', title: 'CONNECT', type: 'gallery' },
+            { id: 'protocol', title: 'PROTOCOL_SPECIFICATIONS', type: 'protocol' }
+        ];
+
+        const galleryImages = {
+            projects: ['PROJ_01', 'PROJ_02', 'PROJ_03', 'PROJ_04', 'PROJ_05'],
+            processes: ['PROC_01', 'PROC_02', 'PROC_03', 'PROC_04', 'PROC_05'],
+            algorithm: ['ALGO_01', 'ALGO_02', 'ALGO_03', 'ALGO_04', 'ALGO_05'],
+            connect: ['CONN_01', 'CONN_02', 'CONN_03', 'CONN_04', 'CONN_05']
+        };
+
+        // Массив из 10 фоновых изображений (для ультра-вайд и адаптивности)
+        const backgroundImages = [
+            '01 ID Background/11.jpg',
+            '01 ID Background/22.jpg',
+            '01 ID Background/33.jpg',
+            '01 ID Background/44.jpg',
+            '01 ID Background/55.jpg',
+            '01 ID Background/66.jpg',
+            '01 ID Background/77.jpg',
+            '01 ID Background/88.jpg',
+            '01 ID Background/99.jpg',
+            '01 ID Background/1010.jpg'
+        ];
+
+        let currentIndex = 0;
+        let backgroundInterval = null;
+        let bgIndex = 0;
+        const mainContent = document.getElementById('mainContent');
+
+        // Функция смены фона (плавно через style.backgroundImage)
+        function changeBackground() {
+            bgIndex = (bgIndex + 1) % backgroundImages.length;
+            mainContent.style.backgroundImage = `url('${backgroundImages[bgIndex]}')`;
+        }
+
+        // Запуск ротации фона (для ID)
+        function startBackgroundRotation() {
+            if (backgroundInterval) clearInterval(backgroundInterval);
+            bgIndex = 0;
+            mainContent.style.backgroundImage = `url('${backgroundImages[0]}')`;
+            backgroundInterval = setInterval(changeBackground, 8000); // 8 секунд
+        }
+
+        // Остановка ротации и сброс фона к базовому цвету
+        function stopBackgroundRotation() {
+            if (backgroundInterval) {
+                clearInterval(backgroundInterval);
+                backgroundInterval = null;
+            }
+            mainContent.style.backgroundImage = 'none'; // убираем картинку, остаётся цвет #222629
+        }
+
+        let currentPageType = 'id'; // для отслеживания
+
+        function renderPage(index) {
+            const container = document.getElementById('page-content-container');
+            const page = pages[index];
+            
+            // Подсветка активного пункта
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            const navMap = ['nav-page0', 'nav-page1', 'nav-page2', 'nav-page3', 'nav-page4', 'nav-page5'];
+            const activeNav = document.getElementById(navMap[index]);
+            if (activeNav) activeNav.classList.add('active');
+
+            // Если страница ID
+            if (page.type === 'id') {
+                container.innerHTML = `
+                    <div class="id-page">
+                        <div class="id-card">
+                            <div class="id-title">3D-МОДЕЛИРОВАНИЕ</div>
+                            <div class="id-title-second">И ВИЗУАЛИЗАЦИЯ ПРОЕКТОВ</div>
+                            <div class="id-subtitle">ОТ ЛОКАЛЬНЫХ ЗАДАЧ ДО КОМПЛЕКСНЫХ РЕШЕНИЙ</div>
+                            <div class="id-tags">Проектирование • Моделирование • Визуализация • Графический дизайн • Анимация • Видеопроизводство</div>
+                            <div class="id-description">
+                                Разработка 3D-дизайна и визуальных систем цифровых и печатных продуктов.<br>
+                                Точечный или полный цикл производства — от идеи до результата — в формате «одного окна».<br>
+                                Моя цель — визуализировать и передать ценность вашего предложения потребителю с демонстрацией решения его проблемы со всех ракурсов. Я не просто делаю графику, я упаковываю продукт под ключ для запуска на рынок.
+                            </div>
+                        </div>
+                    </div>
+                `;
+                // Запускаем фоновую галерею
+                startBackgroundRotation();
+            } else {
+                // Останавливаем фон для других страниц
+                stopBackgroundRotation();
+
+                if (page.type === 'gallery') {
+                    const images = galleryImages[page.id] || ['IMAGE1', 'IMAGE2', 'IMAGE3'];
+                    const imagesHTML = images.map((img, i) => 
+                        `<div class="thumb-item" data-index="${i}" onclick="setGalleryImage(${index}, ${i})">${img}</div>`
+                    ).join('');
+
+                    container.innerHTML = `
+                        <div class="page-headline">${page.title}</div>
+                        <div class="gallery-container" id="gallery-${page.id}">
+                            <div class="gallery-main">
+                                <div class="gallery-main-image" id="gallery-main-${page.id}">${images[0]}</div>
+                            </div>
+                            <div class="gallery-nav">
+                                <button onclick="prevImage(${index})">←</button>
+                                <button onclick="nextImage(${index})">→</button>
+                            </div>
+                            <div class="gallery-thumbs" id="thumbs-${page.id}">
+                                ${imagesHTML}
+                            </div>
+                        </div>
+                    `;
+                    if (!window.galleryStates) window.galleryStates = {};
+                    window.galleryStates[page.id] = { currentImage: 0, images: images };
+                    setTimeout(() => {
+                        document.querySelectorAll(`#thumbs-${page.id} .thumb-item`).forEach(el => el.classList.remove('active-thumb'));
+                        const activeThumb = document.querySelector(`#thumbs-${page.id} .thumb-item[data-index="0"]`);
+                        if (activeThumb) activeThumb.classList.add('active-thumb');
+                    }, 0);
+                } else if (page.type === 'protocol') {
+                    container.innerHTML = `
+                        <div class="protocol-page">
+                            <div class="protocol-header">
+                                <div class="page-headline">${page.title}</div>
+                                <a href="PROTOCOL_SPECIFICATIONS.pdf" download class="download-btn">Скачать и заполнить</a>
+                            </div>
+                            <div class="pdf-viewer">
+                                <iframe class="pdf-iframe" src="PROTOCOL_SPECIFICATIONS.pdf" title="PDF документ"></iframe>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            currentIndex = index;
+        }
+
+        // Функции галереи (без изменений)
+        window.setGalleryImage = function(pageIndex, imgIndex) {
+            const page = pages[pageIndex];
+            if (page.type !== 'gallery') return;
+            const state = window.galleryStates[page.id];
+            if (!state) return;
+            state.currentImage = imgIndex;
+            const mainDiv = document.getElementById(`gallery-main-${page.id}`);
+            if (mainDiv) mainDiv.textContent = state.images[imgIndex];
+            document.querySelectorAll(`#thumbs-${page.id} .thumb-item`).forEach(el => {
+                el.classList.remove('active-thumb');
+                if (el.dataset.index == imgIndex) el.classList.add('active-thumb');
+            });
+        };
+
+        window.prevImage = function(pageIndex) {
+            const page = pages[pageIndex];
+            if (page.type !== 'gallery') return;
+            const state = window.galleryStates[page.id];
+            if (!state) return;
+            let newIndex = state.currentImage - 1;
+            if (newIndex < 0) newIndex = state.images.length - 1;
+            setGalleryImage(pageIndex, newIndex);
+        };
+
+        window.nextImage = function(pageIndex) {
+            const page = pages[pageIndex];
+            if (page.type !== 'gallery') return;
+            const state = window.galleryStates[page.id];
+            if (!state) return;
+            let newIndex = state.currentImage + 1;
+            if (newIndex >= state.images.length) newIndex = 0;
+            setGalleryImage(pageIndex, newIndex);
+        };
+
+        // Обработка кликов по ссылкам меню
+        document.querySelectorAll('.side-panel a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const href = link.getAttribute('href');
+                if (href === 'page0.html') renderPage(0);
+                else if (href === 'page1.html') renderPage(1);
+                else if (href === 'page2.html') renderPage(2);
+                else if (href === 'page3.html') renderPage(3);
+                else if (href === 'page4.html') renderPage(4);
+                else if (href === 'page5.html') renderPage(5);
+
+                if (window.innerWidth <= 700) {
+                    document.body.classList.add('menu-hidden');
+                }
+            });
+        });
+
+        // Клик по логотипу ведёт на ID
+        document.getElementById('logoLink').addEventListener('click', () => {
+            renderPage(0);
+            if (window.innerWidth <= 700) {
+                document.body.classList.add('menu-hidden');
+            }
+        });
+
+        // Инициализация: показываем ID с фоновой галереей
+        renderPage(0);
+
+        // --- УПРАВЛЕНИЕ МЕНЮ ---
+        const toggleBtn = document.getElementById('menuToggle');
+        const body = document.body;
+
+        function toggleMenu() {
+            body.classList.toggle('menu-hidden');
+        }
+
+        toggleBtn.addEventListener('click', toggleMenu);
+
+        function setInitialMenuState() {
+            if (window.innerWidth <= 700) {
+                body.classList.add('menu-hidden');
+            } else {
+                body.classList.remove('menu-hidden');
+            }
+        }
+        setInitialMenuState();
+        window.addEventListener('resize', () => {});
+    </script>
+</body>
+</html>
