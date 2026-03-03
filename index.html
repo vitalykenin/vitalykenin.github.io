@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VITALY KENIN</title>
     
-    <!-- Open Graph мета-теги для отображения при наведении / шаринге -->
+    <!-- Open Graph мета-теги -->
     <meta property="og:title" content="VITALY KENIN - 3D-МОДЕЛИРОВАНИЕ И ВИЗУАЛИЗАЦИЯ ПРОЕКТОВ">
     <meta property="og:description" content="Разработка 3D-дизайна и визуальных систем цифровых и печатных продуктов. Полный цикл производства — от идеи до результата.">
     <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23222629'/%3E%3Ctext x='60' y='200' font-family='Inter' font-size='48' fill='%23ffa500' font-weight='bold'%3EVITALY KENIN%3C/text%3E%3Ctext x='60' y='300' font-family='Inter' font-size='32' fill='%23F0F0F0'%3E3D-МОДЕЛИРОВАНИЕ%3C/text%3E%3Ctext x='60' y='380' font-family='Inter' font-size='32' fill='%23F0F0F0'%3EИ ВИЗУАЛИЗАЦИЯ ПРОЕКТОВ%3C/text%3E%3C/svg%3E">
@@ -15,10 +15,10 @@
     <!-- Фавикон -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23222629'/%3E%3Ctext x='20' y='68' font-family='Inter' font-size='60' fill='%23ffa500' font-weight='bold'%3EVK%3C/text%3E%3C/svg%3E">
     
-    <!-- Подключаем шрифты Inter (основной) и Sora (для логотипа) -->
+    <!-- Шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Sora:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* === ГЛОБАЛЬНЫЕ СТИЛИ — палитра сохранена === */
+        /* === ГЛОБАЛЬНЫЕ СТИЛИ === */
         * {
             margin: 0;
             padding: 0;
@@ -36,7 +36,6 @@
             min-height: 100vh;
         }
 
-        /* легкая зернистость фона (поверх всего) */
         body::before {
             content: "";
             position: fixed;
@@ -61,7 +60,7 @@
             list-style: none;
         }
 
-        /* === ДВУХКОЛОНОЧНАЯ СТРУКТУРА: МЕНЮ СПРАВА === */
+        /* === ДВУХКОЛОНОЧНАЯ СТРУКТУРА === */
         .container {
             display: flex;
             width: 100%;
@@ -92,7 +91,6 @@
             display: none;
         }
 
-        /* скрытие панели (уезжает вправо) */
         body.menu-hidden .side-panel {
             transform: translateX(100%);
         }
@@ -100,7 +98,6 @@
             margin-right: 0;
         }
 
-        /* Логотип — шрифт Sora, кликабельный */
         .logo {
             font-family: 'Sora', sans-serif;
             font-size: 1.6rem;
@@ -129,7 +126,15 @@
             color: #AAAAAA;
             line-height: 1.2;
         }
-        .nav-item.active a {
+
+        .nav-subitem {
+            margin-left: 1rem;
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .nav-item.active a,
+        .nav-subitem.active a {
             color: #ffa500;
             font-weight: 400;
         }
@@ -137,51 +142,92 @@
         .separator {
             height: 1px;
             background: #3a3a3a;
-            margin: 1rem 0 1.2rem 0;
+            margin: 1rem 0 0.2rem 0;
         }
 
-        /* подвал в меню — текст по центру */
-        .micro-text {
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-start;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-icons a {
+            color: #AAAAAA;
+            transition: color 0.2s;
+        }
+
+        .social-icons a:hover {
+            color: #ffa500;
+        }
+
+        /* Нижний блок (информация и политика) */
+        .footer-bottom {
+            margin-top: auto;          /* прижимаем к низу */
             font-size: 0.7rem;
             color: #6b6b6b;
-            margin-top: auto;
             border-top: 1px solid #3a3a3a;
             padding-top: 0.8rem;
+        }
+
+        .footer-bottom .micro-text {
+            margin-bottom: 0.3rem;
+            font-size: 0.7rem;
+            color: #6b6b6b;
             text-align: center;
         }
 
-        /* --- ОСНОВНОЙ КОНТЕНТ (слева) --- */
+        .footer-info {
+            text-align: center;
+            line-height: 1.4;
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-privacy {
+            text-align: center;
+        }
+
+        .footer-privacy a {
+            color: #6b6b6b;
+            transition: color 0.2s;
+            text-decoration: none;
+        }
+
+        .footer-privacy a:hover {
+            color: #ffa500;
+        }
+
+        /* --- ОСНОВНОЙ КОНТЕНТ --- */
         .main-content {
             flex: 1;
             margin-right: 300px;
             padding: 2.8rem 3rem;
-            background-color: #222629;          /* базовый цвет, будет перекрываться фоном ID */
+            background-color: #222629;
             display: flex;
             flex-direction: column;
-            transition: margin-right 0.2s, background-image 1s ease; /* плавная смена фона */
+            transition: margin-right 0.2s, background-image 1s ease;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
 
-        /* заголовки страниц — без оранжевых полосок */
         .page-headline {
             font-size: 0.85rem;
             color: #ffa500;
             letter-spacing: 4px;
             text-transform: uppercase;
             padding-left: 0;
-            margin: 0;
+            margin: 0 0 1rem 0;
         }
 
-        /* --- СТИЛИ ДЛЯ СТРАНИЦЫ ID --- */
+        /* --- СТРАНИЦА ID --- */
         .id-page {
             position: relative;
             margin-bottom: 2rem;
-            /* фоном управляем через main-content, здесь не нужно */
         }
 
-        /* карточка: радиус скругления 6px */
         .id-card {
             background: rgba(25, 26, 28, 0.8);
             border-radius: 6px;
@@ -198,8 +244,8 @@
             color: #ffa500;
             text-transform: uppercase;
             letter-spacing: 4px;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
         }
 
         .id-title-second {
@@ -208,26 +254,26 @@
             color: #ffa500;
             text-transform: uppercase;
             letter-spacing: 4px;
-            margin-top: 0.2rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
         }
 
         .id-subtitle {
             font-size: 1.4rem;
             font-weight: 300;
             color: #F0F0F0;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.8rem;
             letter-spacing: 2px;
+            line-height: 1.3;
         }
 
-        /* теги: линия на всю ширину карточки */
         .id-tags {
             font-size: 1rem;
             color: #F0F0F0;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             border-bottom: 1px solid #ffa500;
-            padding-bottom: 1rem;
+            padding-bottom: 0.6rem;
             display: block;
             width: 100%;
             white-space: nowrap;
@@ -237,17 +283,74 @@
 
         .id-description {
             max-width: 720px;
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-size: 0.9rem;
+            line-height: 1.5;
             color: #AAAAAA;
         }
 
-        /* --- ГАЛЕРЕЯ для страниц PROJECTS, PROCESSES, ALGORITHM, CONNECT --- */
+        /* Ссылка статуса на странице ID (зеленая с неоновым кружком) */
+        .status-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 0.8rem;
+            color: #00ff00;
+            text-decoration: none;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-link:hover {
+            text-decoration: underline;
+            color: #00ff00;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        /* --- КОЛЛАЖ ДЛЯ PROJECTS (все квадратные) --- */
+        .collage-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .collage-item {
+            background-color: #2a2d30;
+            border: 1px solid #3a3a3a;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b6b6b;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .collage-item:hover {
+            border-color: #ffa500;
+            transform: scale(1.02);
+        }
+
+        /* --- ГАЛЕРЕЯ (для подразделов PROJECTS) --- */
         .gallery-container {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
             margin-top: 1rem;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
         }
 
         .gallery-main {
@@ -259,6 +362,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            cursor: pointer;
         }
 
         .gallery-main-image {
@@ -267,11 +371,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: #6b6b6b;
-            text-transform: uppercase;
             background-size: cover;
             background-position: center;
+            background-color: #2a2d30;
+            color: #6b6b6b;
+            font-size: 2rem;
+            text-transform: uppercase;
         }
 
         .gallery-nav {
@@ -318,6 +423,8 @@
             cursor: pointer;
             transition: 0.2s;
             text-transform: uppercase;
+            background-size: cover;
+            background-position: center;
         }
 
         .thumb-item:hover,
@@ -326,7 +433,146 @@
             color: #ffa500;
         }
 
-        /* --- СТИЛИ ДЛЯ СТРАНИЦЫ PROTOCOL_SPECIFICATIONS --- */
+        /* --- МОДАЛЬНОЕ ОКНО ГАЛЕРЕИ (полноэкранный просмотр) --- */
+        .gallery-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 20000;
+            cursor: pointer;
+        }
+
+        .gallery-modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-modal-image {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border: 2px solid #ffa500;
+            background-color: #191a1c;
+            padding: 0.5rem;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(25, 26, 28, 0.7);
+            color: #AAAAAA;
+            border: 1px solid #ffa500;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: 0.2s;
+            z-index: 20001;
+            user-select: none;
+        }
+
+        .modal-nav:hover {
+            background: #ffa500;
+            color: #191a1c;
+        }
+
+        .modal-nav.prev {
+            left: 20px;
+        }
+
+        .modal-nav.next {
+            right: 20px;
+        }
+
+        /* --- СТРАНИЦА ALGORITHM (ТЕКСТ) --- */
+        .algorithm-page {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .algorithm-section {
+            margin-bottom: 1rem;
+        }
+
+        .algorithm-section .page-headline {
+            margin-bottom: 0.5rem;
+        }
+
+        .algorithm-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .algorithm-list li {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #AAAAAA;
+            border-bottom: 1px dotted #3a3a3a;
+            padding: 0.3rem 0;
+        }
+
+        .algorithm-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* --- СТРАНИЦА PROCESSES (СПИСОК УСЛУГ) --- */
+        .services-page {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .service-section {
+            margin-bottom: 1rem;
+        }
+
+        .service-section .page-headline {
+            margin-bottom: 0.5rem;
+        }
+
+        .service-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-list li {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #AAAAAA;
+            border-bottom: 1px dotted #3a3a3a;
+            padding: 0.3rem 0;
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-footnote {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-top: 1px solid #3a3a3a;
+            color: #AAAAAA;
+            font-style: normal;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        /* --- СТРАНИЦА PROTOCOL_SPECIFICATIONS --- */
         .protocol-page {
             display: flex;
             flex-direction: column;
@@ -375,7 +621,97 @@
             display: block;
         }
 
-        /* === КНОПКА ГАМБУРГЕР === */
+        /* --- СТРАНИЦА CONNECT (ФОРМА + ССЫЛКИ) --- */
+        .connect-page {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .connect-form {
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(25, 26, 28, 0.8);
+            border: 1px solid #3a3a3a;
+            border-radius: 6px;
+            padding: 2rem;
+            backdrop-filter: blur(2px);
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #F0F0F0;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: #191a1c;
+            border: 1px solid #3a3a3a;
+            color: #AAAAAA;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            border-radius: 0;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #ffa500;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            border: 1px solid #ffa500;
+            background: transparent;
+            color: #AAAAAA;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            padding: 0.8rem 2rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+            width: auto;
+        }
+
+        .submit-btn:hover {
+            background: #ffa500;
+            color: #191a1c;
+            border-color: #ffa500;
+        }
+
+        .contact-links {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .contact-links a {
+            display: inline-block;
+            margin: 0 1rem;
+            color: #AAAAAA;
+            transition: color 0.2s;
+        }
+
+        .contact-links a:hover {
+            color: #ffa500;
+        }
+
+        /* --- КНОПКА ГАМБУРГЕР --- */
         .menu-toggle {
             position: fixed;
             top: 1.2rem;
@@ -435,6 +771,30 @@
                 align-items: flex-start;
             }
             .download-btn { white-space: normal; }
+            .connect-form {
+                padding: 1.5rem;
+                max-width: 100%;
+            }
+            .contact-links a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            .status-link {
+                top: 5px;
+                right: 5px;
+                font-size: 0.7rem;
+            }
+            .modal-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5rem;
+            }
+            .modal-nav.prev {
+                left: 10px;
+            }
+            .modal-nav.next {
+                right: 10px;
+            }
         }
 
         @media screen and (max-width: 480px) {
@@ -445,18 +805,23 @@
     </style>
 </head>
 <body>
-    <!-- Кнопка гамбургер -->
     <div class="menu-toggle" id="menuToggle">☰</div>
 
     <div class="container">
-        <!-- ПРАВАЯ ПАНЕЛЬ МЕНЮ -->
         <div class="side-panel" id="sidePanel">
-            <!-- Логотип кликабельный и ведёт на ID -->
             <div class="logo" id="logoLink">VITALY KENIN</div>
             
             <div class="nav-section">
                 <div class="nav-item" id="nav-page0"><a href="page0.html">ID</a></div>
+                
+                <!-- PROJECTS и его подразделы -->
                 <div class="nav-item" id="nav-page1"><a href="page1.html">PROJECTS</a></div>
+                <div class="nav-subitem" id="nav-page6"><a href="page6.html">Design</a></div>
+                <div class="nav-subitem" id="nav-page7"><a href="page7.html">Modeling</a></div>
+                <div class="nav-subitem" id="nav-page8"><a href="page8.html">Visualizations</a></div>
+                <div class="nav-subitem" id="nav-page9"><a href="page9.html">Animation</a></div>
+                <div class="nav-subitem" id="nav-page10"><a href="page10.html">Video Production</a></div>
+                
                 <div class="nav-item" id="nav-page2"><a href="page2.html">PROCESSES</a></div>
                 <div class="nav-item" id="nav-page3"><a href="page3.html">ALGORITHM</a></div>
                 <div class="nav-item" id="nav-page4"><a href="page4.html">CONNECT</a></div>
@@ -464,45 +829,86 @@
             </div>
 
             <div class="separator"></div>
-            <div class="micro-text">© VITALY KENIN – 2026</div>
+            
+            <!-- Иконки соцсетей (8 штук) -->
+            <div class="social-icons">
+                <a href="#" target="_blank" title="VK">VK</a>
+                <a href="#" target="_blank" title="Telegram">📱</a>
+                <a href="#" target="_blank" title="YouTube">▶️</a>
+                <a href="#" target="_blank" title="Facebook">FB</a>
+                <a href="#" target="_blank" title="Instagram">IG</a>
+                <a href="#" target="_blank" title="LinkedIn">IN</a>
+                <a href="#" target="_blank" title="GitHub">GH</a>
+                <a href="#" target="_blank" title="Twitter">TW</a>
+            </div>
+
+            <!-- Нижний блок с информацией и политикой (прижат к низу) -->
+            <div class="footer-bottom">
+                <div class="micro-text">© VITALY KENIN – 2026</div>
+                <div class="footer-info">
+                    Кенин Виталий Александрович<br>
+                    ИНН 301509114353 (НПД)
+                </div>
+                <div class="footer-privacy">
+                    <a href="#">Политика конфиденциальности</a>
+                </div>
+            </div>
         </div>
 
-        <!-- ОСНОВНОЙ КОНТЕНТ -->
         <div class="main-content" id="mainContent">
             <div id="page-content-container"></div>
         </div>
     </div>
 
+    <!-- Модальное окно для полноэкранного просмотра галереи -->
+    <div id="galleryModal" class="gallery-modal" onclick="closeGalleryModal()">
+        <div class="gallery-modal-content" onclick="event.stopPropagation()">
+            <img id="modalGalleryImage" class="gallery-modal-image" src="" alt="">
+            <div class="modal-nav prev" onclick="prevModalImage()">←</div>
+            <div class="modal-nav next" onclick="nextModalImage()">→</div>
+        </div>
+    </div>
+
     <script>
-        // --- ДАННЫЕ ДЛЯ 6 СТРАНИЦ ---
+        // --- ДАННЫЕ ДЛЯ СТРАНИЦ ---
         const pages = [
             { id: 'id', title: 'ID', type: 'id' },
-            { id: 'projects', title: 'PROJECTS', type: 'gallery' },
-            { id: 'processes', title: 'PROCESSES', type: 'gallery' },
-            { id: 'algorithm', title: 'ALGORITHM', type: 'gallery' },
-            { id: 'connect', title: 'CONNECT', type: 'gallery' },
-            { id: 'protocol', title: 'PROTOCOL_SPECIFICATIONS', type: 'protocol' }
+            { id: 'projects', title: 'PROJECTS', type: 'collage' },
+            { id: 'processes', title: 'PROCESSES', type: 'services' },
+            { id: 'algorithm', title: 'ALGORITHM', type: 'algorithm-text' },
+            { id: 'connect', title: 'CONNECT', type: 'connect' },
+            { id: 'protocol', title: 'PROTOCOL_SPECIFICATIONS', type: 'protocol' },
+            // подразделы PROJECTS
+            { id: 'design', title: 'Design', type: 'gallery' },
+            { id: 'modeling', title: 'Modeling', type: 'gallery' },
+            { id: 'visualizations', title: 'Visualizations', type: 'gallery' },
+            { id: 'animation', title: 'Animation', type: 'gallery' },
+            { id: 'video_production', title: 'Video Production', type: 'gallery' }
         ];
 
+        // Увеличено количество превью до 10 для каждого подраздела
         const galleryImages = {
-            projects: ['PROJ_01', 'PROJ_02', 'PROJ_03', 'PROJ_04', 'PROJ_05'],
-            processes: ['PROC_01', 'PROC_02', 'PROC_03', 'PROC_04', 'PROC_05'],
-            algorithm: ['ALGO_01', 'ALGO_02', 'ALGO_03', 'ALGO_04', 'ALGO_05'],
-            connect: ['CONN_01', 'CONN_02', 'CONN_03', 'CONN_04', 'CONN_05']
+            projects: ['PROJ_01', 'PROJ_02', 'PROJ_03', 'PROJ_04', 'PROJ_05', 'PROJ_06', 'PROJ_07', 'PROJ_08', 'PROJ_09', 'PROJ_10'],
+            algorithm: ['ALGO_01', 'ALGO_02', 'ALGO_03', 'ALGO_04', 'ALGO_05', 'ALGO_06', 'ALGO_07', 'ALGO_08', 'ALGO_09', 'ALGO_10'],
+            design: ['DSGN_01', 'DSGN_02', 'DSGN_03', 'DSGN_04', 'DSGN_05', 'DSGN_06', 'DSGN_07', 'DSGN_08', 'DSGN_09', 'DSGN_10'],
+            modeling: ['MODL_01', 'MODL_02', 'MODL_03', 'MODL_04', 'MODL_05', 'MODL_06', 'MODL_07', 'MODL_08', 'MODL_09', 'MODL_10'],
+            visualizations: ['VIS_01', 'VIS_02', 'VIS_03', 'VIS_04', 'VIS_05', 'VIS_06', 'VIS_07', 'VIS_08', 'VIS_09', 'VIS_10'],
+            animation: ['ANIM_01', 'ANIM_02', 'ANIM_03', 'ANIM_04', 'ANIM_05', 'ANIM_06', 'ANIM_07', 'ANIM_08', 'ANIM_09', 'ANIM_10'],
+            video_production: ['VID_01', 'VID_02', 'VID_03', 'VID_04', 'VID_05', 'VID_06', 'VID_07', 'VID_08', 'VID_09', 'VID_10']
         };
 
-        // Массив из 10 фоновых изображений (для ультра-вайд и адаптивности)
+        // Фоновые изображения для ID
         const backgroundImages = [
-            '01 ID Background/11.jpg',
-            '01 ID Background/22.jpg',
-            '01 ID Background/33.jpg',
-            '01 ID Background/44.jpg',
-            '01 ID Background/55.jpg',
-            '01 ID Background/66.jpg',
-            '01 ID Background/77.jpg',
-            '01 ID Background/88.jpg',
-            '01 ID Background/99.jpg',
-            '01 ID Background/1010.jpg'
+            'img/01-id-background/1.jpg',
+            'img/01-id-background/2.jpg',
+            'img/01-id-background/3.jpg',
+            'img/01-id-background/4.jpg',
+            'img/01-id-background/5.jpg',
+            'img/01-id-background/6.jpg',
+            'img/01-id-background/7.jpg',
+            'img/01-id-background/8.jpg',
+            'img/01-id-background/9.jpg',
+            'img/01-id-background/10.jpg'
         ];
 
         let currentIndex = 0;
@@ -510,50 +916,101 @@
         let bgIndex = 0;
         const mainContent = document.getElementById('mainContent');
 
-        // Функция смены фона (плавно через style.backgroundImage)
+        // Переменные для полноэкранного просмотра галереи
+        let currentGalleryPageId = null;
+        let currentGalleryIndex = 0;
+        let galleryModal = document.getElementById('galleryModal');
+        let modalImage = document.getElementById('modalGalleryImage');
+
         function changeBackground() {
             bgIndex = (bgIndex + 1) % backgroundImages.length;
             mainContent.style.backgroundImage = `url('${backgroundImages[bgIndex]}')`;
         }
 
-        // Запуск ротации фона (для ID)
         function startBackgroundRotation() {
             if (backgroundInterval) clearInterval(backgroundInterval);
             bgIndex = 0;
             mainContent.style.backgroundImage = `url('${backgroundImages[0]}')`;
-            backgroundInterval = setInterval(changeBackground, 8000); // 8 секунд
+            backgroundInterval = setInterval(changeBackground, 8000);
         }
 
-        // Остановка ротации и сброс фона к базовому цвету
         function stopBackgroundRotation() {
             if (backgroundInterval) {
                 clearInterval(backgroundInterval);
                 backgroundInterval = null;
             }
-            mainContent.style.backgroundImage = 'none'; // убираем картинку, остаётся цвет #222629
+            mainContent.style.backgroundImage = 'none';
         }
 
-        let currentPageType = 'id'; // для отслеживания
+        // Функции для полноэкранного просмотра галереи
+        window.openGalleryModal = function(pageId, index) {
+            currentGalleryPageId = pageId;
+            currentGalleryIndex = index;
+            updateModalImage();
+            galleryModal.style.display = 'flex';
+            document.addEventListener('keydown', handleGalleryKey);
+        };
+
+        window.closeGalleryModal = function() {
+            galleryModal.style.display = 'none';
+            document.removeEventListener('keydown', handleGalleryKey);
+        };
+
+        window.prevModalImage = function() {
+            if (!currentGalleryPageId) return;
+            const images = galleryImages[currentGalleryPageId];
+            currentGalleryIndex = (currentGalleryIndex - 1 + images.length) % images.length;
+            updateModalImage();
+        };
+
+        window.nextModalImage = function() {
+            if (!currentGalleryPageId) return;
+            const images = galleryImages[currentGalleryPageId];
+            currentGalleryIndex = (currentGalleryIndex + 1) % images.length;
+            updateModalImage();
+        };
+
+        function updateModalImage() {
+            if (!currentGalleryPageId) return;
+            const images = galleryImages[currentGalleryPageId];
+            // Заглушка: встроенное SVG с текстом
+            modalImage.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%232a2d30'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter' font-size='36' fill='%23AAAAAA' text-anchor='middle' dy='.3em'%3E${images[currentGalleryIndex]}%3C/text%3E%3C/svg%3E`;
+        }
+
+        function handleGalleryKey(e) {
+            if (e.key === 'ArrowLeft') {
+                prevModalImage();
+            } else if (e.key === 'ArrowRight') {
+                nextModalImage();
+            } else if (e.key === 'Escape') {
+                closeGalleryModal();
+            }
+        }
 
         function renderPage(index) {
             const container = document.getElementById('page-content-container');
             const page = pages[index];
             
-            // Подсветка активного пункта
-            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-            const navMap = ['nav-page0', 'nav-page1', 'nav-page2', 'nav-page3', 'nav-page4', 'nav-page5'];
+            // Подсветка активного пункта меню
+            document.querySelectorAll('.nav-item, .nav-subitem').forEach(el => el.classList.remove('active'));
+            const navMap = ['nav-page0', 'nav-page1', 'nav-page2', 'nav-page3', 'nav-page4', 'nav-page5', 
+                            'nav-page6', 'nav-page7', 'nav-page8', 'nav-page9', 'nav-page10'];
             const activeNav = document.getElementById(navMap[index]);
             if (activeNav) activeNav.classList.add('active');
 
-            // Если страница ID
+            // Страница ID
             if (page.type === 'id') {
                 container.innerHTML = `
                     <div class="id-page">
+                        <a href="https://vk.ru/vvvzzxxx" target="_blank" class="status-link">
+                            <span class="status-indicator"></span>
+                            Статус занятости в профиле VK
+                        </a>
                         <div class="id-card">
                             <div class="id-title">3D-МОДЕЛИРОВАНИЕ</div>
                             <div class="id-title-second">И ВИЗУАЛИЗАЦИЯ ПРОЕКТОВ</div>
                             <div class="id-subtitle">ОТ ЛОКАЛЬНЫХ ЗАДАЧ ДО КОМПЛЕКСНЫХ РЕШЕНИЙ</div>
-                            <div class="id-tags">Проектирование • Моделирование • Визуализация • Графический дизайн • Анимация • Видеопроизводство</div>
+                            <div class="id-tags">Дизайн • Моделирование • Визуализация • Анимация • Видеопроизводство</div>
                             <div class="id-description">
                                 Разработка 3D-дизайна и визуальных систем цифровых и печатных продуктов.<br>
                                 Точечный или полный цикл производства — от идеи до результата — в формате «одного окна».<br>
@@ -562,90 +1019,295 @@
                         </div>
                     </div>
                 `;
-                // Запускаем фоновую галерею
                 startBackgroundRotation();
-            } else {
-                // Останавливаем фон для других страниц
+            } 
+            // Страница PROJECTS с коллажем
+            else if (page.type === 'collage') {
                 stopBackgroundRotation();
-
-                if (page.type === 'gallery') {
-                    const images = galleryImages[page.id] || ['IMAGE1', 'IMAGE2', 'IMAGE3'];
-                    const imagesHTML = images.map((img, i) => 
-                        `<div class="thumb-item" data-index="${i}" onclick="setGalleryImage(${index}, ${i})">${img}</div>`
-                    ).join('');
-
-                    container.innerHTML = `
-                        <div class="page-headline">${page.title}</div>
-                        <div class="gallery-container" id="gallery-${page.id}">
-                            <div class="gallery-main">
-                                <div class="gallery-main-image" id="gallery-main-${page.id}">${images[0]}</div>
-                            </div>
-                            <div class="gallery-nav">
-                                <button onclick="prevImage(${index})">←</button>
-                                <button onclick="nextImage(${index})">→</button>
-                            </div>
-                            <div class="gallery-thumbs" id="thumbs-${page.id}">
-                                ${imagesHTML}
-                            </div>
+                const items = [];
+                for (let i = 1; i <= 48; i++) {
+                    items.push(`
+                        <div class="collage-item" onclick="openModal('Изображение проекта ${i}')">
+                            Проект ${i}
                         </div>
-                    `;
-                    if (!window.galleryStates) window.galleryStates = {};
-                    window.galleryStates[page.id] = { currentImage: 0, images: images };
-                    setTimeout(() => {
-                        document.querySelectorAll(`#thumbs-${page.id} .thumb-item`).forEach(el => el.classList.remove('active-thumb'));
-                        const activeThumb = document.querySelector(`#thumbs-${page.id} .thumb-item[data-index="0"]`);
-                        if (activeThumb) activeThumb.classList.add('active-thumb');
-                    }, 0);
-                } else if (page.type === 'protocol') {
-                    container.innerHTML = `
-                        <div class="protocol-page">
-                            <div class="protocol-header">
-                                <div class="page-headline">${page.title}</div>
-                                <a href="PROTOCOL_SPECIFICATIONS.pdf" download class="download-btn">Скачать и заполнить</a>
-                            </div>
-                            <div class="pdf-viewer">
-                                <iframe class="pdf-iframe" src="PROTOCOL_SPECIFICATIONS.pdf" title="PDF документ"></iframe>
-                            </div>
-                        </div>
-                    `;
+                    `);
                 }
+                container.innerHTML = `
+                    <div class="page-headline">${page.title}</div>
+                    <div class="collage-container">
+                        ${items.join('')}
+                    </div>
+                `;
             }
+            // Страница ALGORITHM с текстом
+            else if (page.type === 'algorithm-text') {
+                stopBackgroundRotation();
+                container.innerHTML = `
+                    <div class="algorithm-page">
+                        <div class="page-headline">${page.title}</div>
+                        
+                        <div class="algorithm-section">
+                            <div class="page-headline">КАК Я РАБОТАЮ</div>
+                            <ul class="algorithm-list">
+                                <li>Работаю с физическими, юридическими лицами и ИП</li>
+                                <li>Работаю по предоплате</li>
+                                <li>Работаю один и без посредников (в моём профиле на АВИТО 1 объявление, а не 99+)</li>
+                                <li>Выполняю как узконаправленные, так и комплексные сложносоставные задачи под ключ</li>
+                                <li>Весь процесс переговоров и передачи материалов происходит в мессенджере АВИТО, VK или по электронной почте</li>
+                                <li>Работаю удалённо, на личные встречи не выезжаю!</li>
+                                <li>Точная стоимость работ и сроки обговариваются индивидуально после изучения технического задания и материалов заказчика</li>
+                                <li>Принимаю рубли</li>
+                                <li>Статус моей занятости можно уточнить в профиле VK - https://vk.com/vvvzzxxx или по запросу</li>
+                                <li>На момент выполнения работ прошу быть на связи!</li>
+                                <li>Минимальная стоимость заказа 5000 руб.</li>
+                            </ul>
+                        </div>
+
+                        <div class="algorithm-section">
+                            <div class="page-headline">ПОРЯДОК РАБОТЫ И ОПЛАТЫ</div>
+                            <ul class="algorithm-list">
+                                <li>1 – Вы отправляете мне техническое задание, материалы и примеры;</li>
+                                <li>2 – Я изучаю информацию, уточняю детали, рассчитываю стоимость и определяю сроки на выполнение;</li>
+                                <li>3 – Вы оплачиваете заказ. Я предоставляю вам чек;</li>
+                                <li>4 – Я выполняю работу и отправляю вам промежуточные этапы на согласование;</li>
+                                <li>5 – После согласования, вношу правки, дорабатываю проект до конца и отправляю вам на утверждение;</li>
+                                <li>6 – После утверждения вы получаете готовые материалы в нужном формате, количестве и качестве.</li>
+                            </ul>
+                        </div>
+
+                        <div class="algorithm-section">
+                            <div class="page-headline">ПЛЮСЫ И ГАРАНТИИ</div>
+                            <ul class="algorithm-list">
+                                <li>+ На все работы выдаю чеки</li>
+                                <li>+ Аккаунт АВИТО верифицирован через госуслуги, паспорт и номер телефона</li>
+                                <li>+ Возможность проведения безопасной сделки (комиссию сервиса оплачивает заказчик)</li>
+                                <li>+ Большой опыт в работе с графическим дизайном, фотографией и 3D-графикой</li>
+                                <li>+ Высокое качество работ</li>
+                                <li>+ Большое портфолио</li>
+                                <li>+ Отзывы и рекомендации клиентов</li>
+                                <li>+ Полное соблюдение анонимности и конфиденциальности заказчика! Личные материалы не публикуются и удаляются сразу после выполнения работ!</li>
+                                <li>+ Уникальность работ</li>
+                                <li>+ Поэтапное, оперативное выполнение</li>
+                                <li>+ Всегда на связи</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+            // Страницы с галереей (подразделы PROJECTS) — обновлено
+            else if (page.type === 'gallery') {
+                stopBackgroundRotation();
+                const images = galleryImages[page.id] || ['IMAGE1', 'IMAGE2', 'IMAGE3'];
+                const imagesHTML = images.map((img, i) => 
+                    `<div class="thumb-item" data-index="${i}" onclick="setGalleryImage('${page.id}', ${i})" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'70\' height=\'70\' viewBox=\'0 0 70 70\'%3E%3Crect width=\'70\' height=\'70\' fill=\'%232a2d30\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'Inter\' font-size=\'10\' fill=\'%23AAAAAA\' text-anchor=\'middle\' dy=\'.3em\'%3E${img}%3C/text%3E%3C/svg%3E'); background-size: cover;">${img}</div>`
+                ).join('');
+
+                container.innerHTML = `
+                    <div class="page-headline">${page.title}</div>
+                    <div class="gallery-container" id="gallery-${page.id}">
+                        <div class="gallery-main" onclick="openGalleryModal('${page.id}', ${window.galleryStates?.[page.id]?.currentImage || 0})">
+                            <div class="gallery-main-image" id="gallery-main-${page.id}" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'450\' viewBox=\'0 0 800 450\'%3E%3Crect width=\'800\' height=\'450\' fill=\'%232a2d30\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'Inter\' font-size=\'36\' fill=\'%23AAAAAA\' text-anchor=\'middle\' dy=\'.3em\'%3E${images[0]}%3C/text%3E%3C/svg%3E'); background-size: cover;">${images[0]}</div>
+                        </div>
+                        <div class="gallery-nav">
+                            <button onclick="prevGalleryImage('${page.id}')">←</button>
+                            <button onclick="nextGalleryImage('${page.id}')">→</button>
+                        </div>
+                        <div class="gallery-thumbs" id="thumbs-${page.id}">
+                            ${imagesHTML}
+                        </div>
+                    </div>
+                `;
+                if (!window.galleryStates) window.galleryStates = {};
+                window.galleryStates[page.id] = { currentImage: 0, images: images };
+                setTimeout(() => {
+                    document.querySelectorAll(`#thumbs-${page.id} .thumb-item`).forEach(el => el.classList.remove('active-thumb'));
+                    const activeThumb = document.querySelector(`#thumbs-${page.id} .thumb-item[data-index="0"]`);
+                    if (activeThumb) activeThumb.classList.add('active-thumb');
+                }, 0);
+            } 
+            // Страница PROCESSES
+            else if (page.type === 'services') {
+                stopBackgroundRotation();
+                container.innerHTML = `
+                    <div class="services-page">
+                        <div class="page-headline">PROCESSES</div>
+                        
+                        <div class="service-section">
+                            <div class="page-headline">Design</div>
+                            <ul class="service-list">
+                                <li>Дизайн цифровой и печатной продукции</li>
+                                <li>Полиграфия - любая</li>
+                                <li>Инфографика и карточки для маркетплейсов</li>
+                                <li>Дизайн фотоальбомов и фотозон для мероприятий</li>
+                                <li>Векторная графика, отрисовка</li>
+                                <li>Брендинг, айдентика – анализ конкурентов, комплексная упаковка и узнаваемость вашего бренда, брендбук</li>
+                                <li>Логотипы, значки, иконки, аватарки, стикеры</li>
+                                <li>Иллюстрации, обложки, постеры, афиши, картины, композиции</li>
+                                <li>Оформление социальных сетей и каналов, контент стратегия, подготовка контента, smm</li>
+                                <li>Презентация, слайды</li>
+                                <li>Коммерческое предложение, демонстрация</li>
+                                <li>Web-дизайн</li>
+                                <li>Дизайн товарной этикетки, наклейки, упаковки и т.д.</li>
+                                <li>Ux/ui дизайн</li>
+                                <li>Web дизайн</li>
+                                <li>Nft коллекции</li>
+                                <li>Концепты</li>
+                                <li>Редизайн</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-section">
+                            <div class="page-headline">Modeling</div>
+                            <ul class="service-list">
+                                <li>Первоначальное проектирование - 3d-набросок будущего жилого или нежилого сооружения, комплекса сооружений</li>
+                                <li>3d-моделирование объектов – в рекламу, игры и кино</li>
+                                <li>3d-сцены</li>
+                                <li>Дизайн и визуализация торговых точек, островков, вывесок, фасадов</li>
+                                <li>Визуализация и дизайн мебели, редизайн</li>
+                                <li>Перевод изображений из 2d в 3d</li>
+                                <li>3d логотипы</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-section">
+                            <div class="page-headline">Visualizations</div>
+                            <ul class="service-list">
+                                <li>3d-иллюстрации, рендер арты</li>
+                                <li>Продуктовая и рекламная визуализация</li>
+                                <li>Архитектурная визуализация</li>
+                                <li>Визуализация интерьера, экстерьера, ландшафта</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-section">
+                            <div class="page-headline">Animation</div>
+                            <ul class="service-list">
+                                <li>Живые картины и видео иллюстрации</li>
+                                <li>Анимация карточек для маркетплейсов</li>
+                                <li>Анимация контента для социальных сетей</li>
+                                <li>Слайд-шоу</li>
+                                <li>Vfx (видео спецэффекты)</li>
+                                <li>Gif анимация</li>
+                                <li>Интро</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-section">
+                            <div class="page-headline">Video Production</div>
+                            <ul class="service-list">
+                                <li>Разработка итогового видео продукта «под ключ».</li>
+                                <li>Реклама</li>
+                                <li>Моушн-дизайн</li>
+                                <li>Презентации</li>
+                                <li>Трейлеры</li>
+                                <li>Тизеры</li>
+                                <li>Инфографика</li>
+                                <li>Рилс</li>
+                                <li>Анимации</li>
+                                <li>Имиджевое видео</li>
+                                <li>Завлекающее видео</li>
+                                <li>Обучающее видео</li>
+                                <li>Видеоинструкции</li>
+                            </ul>
+                        </div>
+
+                        <div class="service-footnote">
+                            Цены и сроки обговариваются индивидуально после изучения технического задания и материалов заказчика. Свяжитесь со мной для точного расчета.
+                        </div>
+                    </div>
+                `;
+            } 
+            // Страница PROTOCOL_SPECIFICATIONS
+            else if (page.type === 'protocol') {
+                stopBackgroundRotation();
+                container.innerHTML = `
+                    <div class="protocol-page">
+                        <div class="protocol-header">
+                            <div class="page-headline">${page.title}</div>
+                            <a href="PROTOCOL_SPECIFICATIONS.pdf" download class="download-btn">Скачать и заполнить</a>
+                        </div>
+                        <div class="pdf-viewer">
+                            <iframe class="pdf-iframe" src="PROTOCOL_SPECIFICATIONS.pdf" title="PDF документ"></iframe>
+                        </div>
+                    </div>
+                `;
+            } 
+            // Страница CONNECT
+            else if (page.type === 'connect') {
+                stopBackgroundRotation();
+                container.innerHTML = `
+                    <div class="connect-page">
+                        <div class="page-headline">${page.title}</div>
+                        <div class="connect-form">
+                            <form id="contactForm" onsubmit="event.preventDefault(); alert('Функция отправки временно не доступна');">
+                                <div class="form-group">
+                                    <label for="name">Имя</label>
+                                    <input type="text" id="name" name="name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-mail</label>
+                                    <input type="email" id="email" name="email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Тема сообщения</label>
+                                    <input type="text" id="subject" name="subject" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Текст сообщения</label>
+                                    <textarea id="message" name="message" class="form-control" required></textarea>
+                                </div>
+                                <button type="submit" class="submit-btn">Отправить</button>
+                            </form>
+                        </div>
+                        <div class="contact-links">
+                            <a href="https://vk.ru/vvvzzxxx" target="_blank">https://vk.ru/vvvzzxxx</a>
+                            <a href="https://t.me/vvvzzxxx" target="_blank">https://t.me/vvvzzxxx</a>
+                            <a href="mailto:vitaly_kenin@mail.ru">vitaly_kenin@mail.ru</a>
+                        </div>
+                    </div>
+                `;
+            }
+
             currentIndex = index;
         }
 
-        // Функции галереи (без изменений)
-        window.setGalleryImage = function(pageIndex, imgIndex) {
-            const page = pages[pageIndex];
-            if (page.type !== 'gallery') return;
-            const state = window.galleryStates[page.id];
+        // Функции для навигации по галерее (подразделы PROJECTS)
+        window.setGalleryImage = function(pageId, imgIndex) {
+            const page = pages.find(p => p.id === pageId);
+            if (!page || page.type !== 'gallery') return;
+            const state = window.galleryStates[pageId];
             if (!state) return;
             state.currentImage = imgIndex;
-            const mainDiv = document.getElementById(`gallery-main-${page.id}`);
-            if (mainDiv) mainDiv.textContent = state.images[imgIndex];
-            document.querySelectorAll(`#thumbs-${page.id} .thumb-item`).forEach(el => {
+            const mainDiv = document.getElementById(`gallery-main-${pageId}`);
+            if (mainDiv) {
+                const imgText = state.images[imgIndex];
+                mainDiv.style.backgroundImage = `url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'450\' viewBox=\'0 0 800 450\'%3E%3Crect width=\'800\' height=\'450\' fill=\'%232a2d30\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'Inter\' font-size=\'36\' fill=\'%23AAAAAA\' text-anchor=\'middle\' dy=\'.3em\'%3E${imgText}%3C/text%3E%3C/svg%3E')`;
+                mainDiv.textContent = imgText; // Для доступности
+            }
+            document.querySelectorAll(`#thumbs-${pageId} .thumb-item`).forEach(el => {
                 el.classList.remove('active-thumb');
                 if (el.dataset.index == imgIndex) el.classList.add('active-thumb');
             });
         };
 
-        window.prevImage = function(pageIndex) {
-            const page = pages[pageIndex];
-            if (page.type !== 'gallery') return;
-            const state = window.galleryStates[page.id];
+        window.prevGalleryImage = function(pageId) {
+            const page = pages.find(p => p.id === pageId);
+            if (!page || page.type !== 'gallery') return;
+            const state = window.galleryStates[pageId];
             if (!state) return;
             let newIndex = state.currentImage - 1;
             if (newIndex < 0) newIndex = state.images.length - 1;
-            setGalleryImage(pageIndex, newIndex);
+            setGalleryImage(pageId, newIndex);
         };
 
-        window.nextImage = function(pageIndex) {
-            const page = pages[pageIndex];
-            if (page.type !== 'gallery') return;
-            const state = window.galleryStates[page.id];
+        window.nextGalleryImage = function(pageId) {
+            const page = pages.find(p => p.id === pageId);
+            if (!page || page.type !== 'gallery') return;
+            const state = window.galleryStates[pageId];
             if (!state) return;
             let newIndex = state.currentImage + 1;
             if (newIndex >= state.images.length) newIndex = 0;
-            setGalleryImage(pageIndex, newIndex);
+            setGalleryImage(pageId, newIndex);
         };
 
         // Обработка кликов по ссылкам меню
@@ -659,6 +1321,11 @@
                 else if (href === 'page3.html') renderPage(3);
                 else if (href === 'page4.html') renderPage(4);
                 else if (href === 'page5.html') renderPage(5);
+                else if (href === 'page6.html') renderPage(6);
+                else if (href === 'page7.html') renderPage(7);
+                else if (href === 'page8.html') renderPage(8);
+                else if (href === 'page9.html') renderPage(9);
+                else if (href === 'page10.html') renderPage(10);
 
                 if (window.innerWidth <= 700) {
                     document.body.classList.add('menu-hidden');
@@ -666,7 +1333,7 @@
             });
         });
 
-        // Клик по логотипу ведёт на ID
+        // Логотип ведёт на ID
         document.getElementById('logoLink').addEventListener('click', () => {
             renderPage(0);
             if (window.innerWidth <= 700) {
@@ -674,10 +1341,10 @@
             }
         });
 
-        // Инициализация: показываем ID с фоновой галереей
+        // Инициализация: показываем ID
         renderPage(0);
 
-        // --- УПРАВЛЕНИЕ МЕНЮ ---
+        // Управление меню (гамбургер)
         const toggleBtn = document.getElementById('menuToggle');
         const body = document.body;
 
@@ -695,7 +1362,7 @@
             }
         }
         setInitialMenuState();
-        window.addEventListener('resize', () => {});
+        window.addEventListener('resize', setInitialMenuState);
     </script>
 </body>
 </html>
