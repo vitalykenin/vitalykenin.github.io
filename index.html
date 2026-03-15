@@ -83,7 +83,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             line-height: 1.5;
             letter-spacing: 0.02em;
             min-height: 100vh;
-            overflow-x: hidden; /* предотвращает горизонтальный скролл всего сайта */
+            overflow-x: hidden;
         }
 
         body::before {
@@ -195,7 +195,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin: 1rem 0 0.2rem 0;
         }
 
-        /* отдельный блок для логотипа подвала над чертой */
         .footer-logo-wrapper {
             margin-top: auto;
             text-align: center;
@@ -223,7 +222,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border-color: #6b6b6b;
         }
 
-        /* Нижний блок (информация и политика) */
         .footer-bottom {
             font-size: 0.7rem;
             color: #6b6b6b;
@@ -271,12 +269,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            min-width: 0;           /* позволяет flex-контейнеру сжиматься */
-            max-width: 100%;         /* не выходит за ширину родителя */
-            overflow-x: hidden;       /* скрывает горизонтальное переполнение внутри себя */
+            min-width: 0;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
-        /* Гарантия, что все дочерние блоки не выйдут за пределы */
         #page-content-container {
             width: 100%;
             max-width: 100%;
@@ -296,17 +293,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin: 0 0 1rem 0;
         }
 
-        /* специальный класс для статуса на ID */
         .id-status {
             font-size: 0.85rem;
             color: #ffa500;
             letter-spacing: 4px;
-            text-transform: none; /* мелкий регистр */
+            text-transform: none;
             padding-left: 0;
             margin: 0 0 1rem 0;
         }
 
-        /* --- СТРЕЛКА ДЛЯ СКРЫТИЯ/РАСКРЫТИЯ МЕНЮ (минималистичная) --- */
         .menu-arrow {
             position: fixed;
             top: 50%;
@@ -340,7 +335,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             right: 0;
         }
 
-        /* адаптация для мобильных */
         @media screen and (max-width: 700px) {
             .side-panel {
                 width: 80%;
@@ -357,13 +351,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         }
 
-        /* --- СТРАНИЦА ID (пустая, кроме статуса) --- */
         .id-page {
             position: relative;
             margin-bottom: 2rem;
         }
 
-        /* --- КОЛЛАЖ ДЛЯ 3D ART --- */
         .collage-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -385,7 +377,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: #6b6b6b;
             font-size: 0.8rem;
             text-transform: uppercase;
-            width: 100%;  /* занимает всю ячейку грида */
+            width: 100%;
         }
 
         .collage-item:hover {
@@ -393,7 +385,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transform: scale(1.02);
         }
 
-        /* --- ГАЛЕРЕЯ (для Gallery) --- */
         .gallery-container {
             display: flex;
             flex-direction: column;
@@ -431,7 +422,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-transform: uppercase;
         }
 
-        /* стрелки галерей стилизованы как в модальном окне */
         .gallery-arrow {
             position: absolute;
             top: 50%;
@@ -553,7 +543,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin: 0.5rem 0 0 0;
         }
 
-        /* --- МОДАЛЬНОЕ ОКНО ГАЛЕРЕИ --- */
         .gallery-modal {
             position: fixed;
             top: 0;
@@ -577,13 +566,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             justify-content: center;
         }
 
-	   .gallery-modal-image {
-				max-width: 90vw;
-				max-height: 90vh;
-				object-fit: contain;
-				background-color: transparent;
-				padding: 0;
-		}
+        .gallery-modal-image {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            background-color: transparent;
+            padding: 0;
+        }
 
         .gallery-modal .modal-nav {
             position: absolute;
@@ -626,12 +615,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border-color: transparent transparent transparent #3a3a3a;
         }
 
-        /* класс для скрытия стрелок в модалке (для обложек) */
         .gallery-modal.hide-nav .modal-nav {
             display: none;
         }
 
-        /* --- СТРАНИЦА CONNECT --- */
         .connect-page {
             display: flex;
             flex-direction: column;
@@ -658,7 +645,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border-color: #ffa500;
         }
 
-        /* --- СТРАНИЦА ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ (обновлённый текст) --- */
         .privacy-page {
             max-width: 800px;
             margin: 0;
@@ -677,7 +663,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin-bottom: 0.5rem;
         }
 
-        /* --- ЗАЩИТА ИЗОБРАЖЕНИЙ ОТ СКАЧИВАНИЯ --- */
         img {
             -webkit-user-drag: none;
             -khtml-user-drag: none;
@@ -700,7 +685,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             user-select: none;
         }
 
-        /* --- КНОПКА ГАМБУРГЕР --- */
         .menu-toggle {
             position: fixed;
             top: 1.2rem;
@@ -727,7 +711,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background: transparent;
         }
 
-        /* --- СТИЛИ ДЛЯ MUSIC TRACKS (список треков) --- */
         .track-list {
             display: flex;
             flex-direction: column;
@@ -771,15 +754,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            min-width: 0; /* позволяет тексту сжиматься */
+            min-width: 0;
         }
 
-        /* стилизация аудиоплеера (темно-серая тема) */
         .track-player audio {
             width: 100%;
             background-color: transparent;
             border: none;
-            color: #777777; /* темно-серый */
+            color: #777777;
             height: 32px;
             border-radius: 0;
         }
@@ -790,12 +772,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         .track-player audio::-webkit-media-controls-current-time-display,
         .track-player audio::-webkit-media-controls-time-remaining-display {
-            color: #777777; /* темно-серый */
+            color: #777777;
             font-size: 12px;
         }
         .track-player audio::-webkit-media-controls-play-button,
         .track-player audio::-webkit-media-controls-mute-button {
-            filter: invert(0.4); /* делаем кнопки темнее (было 0.7) */
+            filter: invert(0.4);
         }
         .track-player audio::-webkit-media-controls-timeline {
             height: 4px;
@@ -807,12 +789,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             width: 12px;
             height: 12px;
             border-radius: 0;
-            background-color: #777777; /* темно-серый */
+            background-color: #777777;
             cursor: pointer;
             transition: background-color 0.2s;
         }
         .track-player:hover audio::-webkit-media-controls-timeline::-webkit-media-slider-thumb {
-            background-color: #ffa500; /* оранжевый при наведении */
+            background-color: #ffa500;
         }
 
         .track-player::after {
@@ -847,7 +829,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding: 0.4rem 0.8rem;
         }
 
-        /* --- СТИЛИ ДЛЯ VIDEO CLIPS (список видео) --- */
         .video-clip-list {
             display: flex;
             flex-direction: column;
@@ -865,7 +846,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             max-width: 100%;
         }
 
-        /* ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ ВИДЕО */
         .video-clip-item .gallery-main {
             position: relative;
             width: 100%;
@@ -886,7 +866,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin-top: 1rem;
         }
 
-        /* === АДАПТАЦИЯ === */
         @media screen and (max-width: 900px) {
             .side-panel { width: 260px; padding: 2rem 1.5rem 1.5rem 1.5rem; }
             .main-content { margin-right: 260px; padding: 2rem 1.5rem; }
@@ -912,10 +891,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 aspect-ratio: 1/1;
             }
         }
-
-        @media screen and (max-width: 480px) {
-            /* стрелка уже адаптирована */
-        }
     </style>
 </head>
 <body>
@@ -928,36 +903,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="nav-section">
                 <div class="nav-item" id="nav-page0"><a href="page0.html">ID</a></div>
                 
-                <!-- 3D_ART -->
                 <div class="nav-item" id="nav-page1"><a href="page1.html">3D_ART</a></div>
                 <div class="nav-subitem" id="nav-page2"><a href="page2.html">Gallery</a></div>
                 
-                <!-- MUSIC_TRACKS -->
                 <div class="nav-item" id="nav-page3"><a href="page3.html">MUSIC_TRACKS</a></div>
                 
-                <!-- VIDEO_CLIPS -->
                 <div class="nav-item" id="nav-page4"><a href="page4.html">VIDEO_CLIPS</a></div>
                 
-                <!-- CONNECT -->
                 <div class="nav-item" id="nav-page5"><a href="page5.html">CONNECT</a></div>
-                
-                <!-- Пункты Политика конфиденциальности и Auctions удалены из меню -->
             </div>
 
             <div class="separator"></div>
-            
-            <!-- Блок соцсетей удалён -->
 
-            <!-- Нижний блок: логотип над чертой -->
             <div class="footer-logo-wrapper">
                 <div class="footer-logo">
                     <img src="icon/logo.svg" style="width: 100%; height: auto; display: block;" alt="VK" draggable="false">
                 </div>
             </div>
-            <!-- Остальной подвал с чертой (ссылка на политику остаётся) -->
             <div class="footer-bottom">
                 <div class="micro-text">© VITALY KENIN – 2024 - 2026 </div>
-				<div class="micro-text">3D-artist, music producer</div>
+                <div class="micro-text">3D-artist, music producer</div>
                 <div class="footer-privacy">
                     <a href="#" id="nav-privacy">Политика конфиденциальности</a>
                 </div>
@@ -969,10 +934,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </div>
     </div>
 
-    <!-- Стрелка меню (вынесена отдельно) -->
     <div class="menu-arrow" id="menuArrow">◀</div>
 
-    <!-- Модальное окно для полноэкранного просмотра галереи (и обложек) -->
     <div id="galleryModal" class="gallery-modal" onclick="closeGalleryModal()">
         <div class="gallery-modal-content" onclick="event.stopPropagation()">
             <img id="modalGalleryImage" class="gallery-modal-image" src="" alt="" draggable="false">
@@ -980,20 +943,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             <div class="modal-nav next" onclick="nextModalImage()"></div>
         </div>
     </div>
-
-    <script>
-        // --- ДАННЫЕ ДЛЯ СТРАНИЦ ---
+	
+	    <script>
+        // --- ДАННЫЕ ДЛЯ СТРАНИЦ (в порядке меню) ---
         const pages = [
-            { id: 'id', title: 'ID', type: 'id' },                             // index 0
-            { id: '3dart', title: '3D_ART', type: 'collage' },                 // index 1
-            { id: 'gallery', title: 'Gallery', type: 'gallery' },              // index 2
-            { id: 'music_tracks', title: 'MUSIC_TRACKS', type: 'music_tracks' }, // index 3
-            { id: 'video_clips', title: 'VIDEO_CLIPS', type: 'video_clips' },  // index 4
-            { id: 'connect', title: 'CONNECT', type: 'connect' },              // index 5
-            { id: 'privacy', title: 'Политика конфиденциальности', type: 'privacy' } // index 6
+            { id: 'id', title: 'ID', type: 'id' },                             // 0
+            { id: '3dart', title: '3D_ART', type: 'collage' },                 // 1
+            { id: 'gallery', title: 'Gallery', type: 'gallery' },              // 2
+            { id: 'music_tracks', title: 'MUSIC_TRACKS', type: 'music_tracks' }, // 3
+            { id: 'video_clips', title: 'VIDEO_CLIPS', type: 'video_clips' },  // 4
+            { id: 'connect', title: 'CONNECT', type: 'connect' },              // 5
+            { id: 'privacy', title: 'Политика конфиденциальности', type: 'privacy' } // 6
         ];
 
-        // Изображения для страницы 3D_ART (48 штук)
+        // --- 3D_ART (48 изображений) ---
         const galleryImages = {
             '3dart': [
                 'https://drive.google.com/thumbnail?id=1vLAX3oYtdY15zgEczO7QzDA6Y73nFlZL&sz=w1200',
@@ -1044,11 +1007,68 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 'https://drive.google.com/thumbnail?id=1vLAX3oYtdY15zgEczO7QzDA6Y73nFlZL&sz=w1200',
                 'https://drive.google.com/thumbnail?id=1vLAX3oYtdY15zgEczO7QzDA6Y73nFlZL&sz=w1200',
                 'https://drive.google.com/thumbnail?id=1vLAX3oYtdY15zgEczO7QzDA6Y73nFlZL&sz=w1200'
-            ],
-            // для Gallery будем создавать отдельные ключи динамически при рендере
+            ]
         };
 
-        // --- ДАННЫЕ ДЛЯ МУЗЫКАЛЬНЫХ ТРЕКОВ (10 штук) ---
+        // --- GALLERY (проекты) ---
+        const galleryProjects = [
+            {
+                id: 1,
+                projectTitle: 'Название проекта 1 (2026)',
+                subtitle: 'Проект 1',
+                description: 'Здесь будет развернутое описание проекта 1: использованные техники, концепция, особенности визуализации и результаты.',
+                images: [
+                    'https://drive.google.com/thumbnail?id=1RIL_UjOLU7q2ChkIpfm6Q1Urd3YvauLX&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1rno8yzKULTntSp6GS4TuOc31vyU7E2us&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=16cOzvcg25D7Wjwk7JG51EmGL-NpMv65z&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1bjjiuzfwAK9gwGyd6w1rUGpvZayRZwo2&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1XYhQPsKwu25onGf5lNwEpq6iEh4dPrl5&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=15xliHptKg9UjWbG1mqKv90aziL9OgA0Q&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1tHrva3bb9nt1PcWsw6FwkRSbbGUInJvo&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1cJr1qJZf01FrZ_EUPiEhyCjh70T1lfRP&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1hYUxzyhXY3SUQnEM7A4MFuCO4RdYuQSh&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1qh-whrn78gVQM-1j5R2in2bgY4dmY_Oy&sz=w1200'
+                ]
+            },
+            {
+                id: 2,
+                projectTitle: 'Название проекта 2 (2026)',
+                subtitle: 'Проект 2',
+                description: 'Подробное описание второго проекта. Здесь можно написать о технике, концепции и результате.',
+                images: [
+                    'https://drive.google.com/thumbnail?id=1RIL_UjOLU7q2ChkIpfm6Q1Urd3YvauLX&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1rno8yzKULTntSp6GS4TuOc31vyU7E2us&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=16cOzvcg25D7Wjwk7JG51EmGL-NpMv65z&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1bjjiuzfwAK9gwGyd6w1rUGpvZayRZwo2&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1XYhQPsKwu25onGf5lNwEpq6iEh4dPrl5&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=15xliHptKg9UjWbG1mqKv90aziL9OgA0Q&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1tHrva3bb9nt1PcWsw6FwkRSbbGUInJvo&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1cJr1qJZf01FrZ_EUPiEhyCjh70T1lfRP&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1hYUxzyhXY3SUQnEM7A4MFuCO4RdYuQSh&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1qh-whrn78gVQM-1j5R2in2bgY4dmY_Oy&sz=w1200'
+                ]
+            },
+            {
+                id: 3,
+                projectTitle: 'Название проекта 3 (2026)',
+                subtitle: 'Проект 3',
+                description: 'Описание третьего проекта. Абсолютно другой текст, уникальный для этой галереи.',
+                images: [
+                    'https://drive.google.com/thumbnail?id=1RIL_UjOLU7q2ChkIpfm6Q1Urd3YvauLX&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1rno8yzKULTntSp6GS4TuOc31vyU7E2us&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=16cOzvcg25D7Wjwk7JG51EmGL-NpMv65z&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1bjjiuzfwAK9gwGyd6w1rUGpvZayRZwo2&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1XYhQPsKwu25onGf5lNwEpq6iEh4dPrl5&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=15xliHptKg9UjWbG1mqKv90aziL9OgA0Q&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1tHrva3bb9nt1PcWsw6FwkRSbbGUInJvo&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1cJr1qJZf01FrZ_EUPiEhyCjh70T1lfRP&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1hYUxzyhXY3SUQnEM7A4MFuCO4RdYuQSh&sz=w1200',
+                    'https://drive.google.com/thumbnail?id=1qh-whrn78gVQM-1j5R2in2bgY4dmY_Oy&sz=w1200'
+                ]
+            }
+        ];
+
+        // --- MUSIC_TRACKS (10 треков) ---
         const trackData = [
             {
                 cover: 'https://drive.google.com/thumbnail?id=1ab5xKBXPHYhNoB1U9qLaa0-28IMxXWUk&sz=w4000',
@@ -1172,7 +1192,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         ];
 
-        // --- ДАННЫЕ ДЛЯ ВИДЕОКЛИПОВ (10 штук) ---
+        // --- VIDEO_CLIPS (10 видео) ---
         const videoData = [
             {
                 id: 'UEQSkaqrMZA',
@@ -1235,66 +1255,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 text: 'Текст десятого видео.'
             }
         ];
-		// --- ДАННЫЕ ДЛЯ ГАЛЕРЕЙ (ПРОЕКТОВ) ---
-const galleryProjects = [
-    {
-        id: 1,
-        projectTitle: 'Название проекта 1 (2026)',
-        subtitle: 'Проект 1',
-        description: 'Здесь будет развернутое описание проекта 1: использованные техники, концепция, особенности визуализации и результаты.',
-        images: [
-            'https://drive.google.com/thumbnail?id=1RIL_UjOLU7q2ChkIpfm6Q1Urd3YvauLX&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1rno8yzKULTntSp6GS4TuOc31vyU7E2us&sz=w1200',
-            'https://drive.google.com/thumbnail?id=16cOzvcg25D7Wjwk7JG51EmGL-NpMv65z&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1bjjiuzfwAK9gwGyd6w1rUGpvZayRZwo2&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1XYhQPsKwu25onGf5lNwEpq6iEh4dPrl5&sz=w1200',
-            'https://drive.google.com/thumbnail?id=15xliHptKg9UjWbG1mqKv90aziL9OgA0Q&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1tHrva3bb9nt1PcWsw6FwkRSbbGUInJvo&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1cJr1qJZf01FrZ_EUPiEhyCjh70T1lfRP&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1hYUxzyhXY3SUQnEM7A4MFuCO4RdYuQSh&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1qh-whrn78gVQM-1j5R2in2bgY4dmY_Oy&sz=w1200'
-        ]
-    },
-    {
-        id: 2,
-        projectTitle: 'Название проекта 2 (2026)',
-        subtitle: 'Проект 2',
-        description: 'Подробное описание второго проекта. Здесь можно написать о технике, концепции и результате.',
-        images: [
-            'https://drive.google.com/thumbnail?id=1RIL_UjOLU7q2ChkIpfm6Q1Urd3YvauLX&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1rno8yzKULTntSp6GS4TuOc31vyU7E2us&sz=w1200',
-            'https://drive.google.com/thumbnail?id=16cOzvcg25D7Wjwk7JG51EmGL-NpMv65z&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1bjjiuzfwAK9gwGyd6w1rUGpvZayRZwo2&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1XYhQPsKwu25onGf5lNwEpq6iEh4dPrl5&sz=w1200',
-            'https://drive.google.com/thumbnail?id=15xliHptKg9UjWbG1mqKv90aziL9OgA0Q&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1tHrva3bb9nt1PcWsw6FwkRSbbGUInJvo&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1cJr1qJZf01FrZ_EUPiEhyCjh70T1lfRP&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1hYUxzyhXY3SUQnEM7A4MFuCO4RdYuQSh&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1qh-whrn78gVQM-1j5R2in2bgY4dmY_Oy&sz=w1200'
-        ]
-    },
-    {
-        id: 3,
-        projectTitle: 'Название проекта 3 (2026)',
-        subtitle: 'Проект 3',
-        description: 'Описание третьего проекта. Абсолютно другой текст, уникальный для этой галереи.',
-        images: [
-            'https://drive.google.com/thumbnail?id=1RIL_UjOLU7q2ChkIpfm6Q1Urd3YvauLX&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1rno8yzKULTntSp6GS4TuOc31vyU7E2us&sz=w1200',
-            'https://drive.google.com/thumbnail?id=16cOzvcg25D7Wjwk7JG51EmGL-NpMv65z&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1bjjiuzfwAK9gwGyd6w1rUGpvZayRZwo2&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1XYhQPsKwu25onGf5lNwEpq6iEh4dPrl5&sz=w1200',
-            'https://drive.google.com/thumbnail?id=15xliHptKg9UjWbG1mqKv90aziL9OgA0Q&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1tHrva3bb9nt1PcWsw6FwkRSbbGUInJvo&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1cJr1qJZf01FrZ_EUPiEhyCjh70T1lfRP&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1hYUxzyhXY3SUQnEM7A4MFuCO4RdYuQSh&sz=w1200',
-            'https://drive.google.com/thumbnail?id=1qh-whrn78gVQM-1j5R2in2bgY4dmY_Oy&sz=w1200'
-        ]
-    }
-];
-        // Фоновые изображения для ID
+
+        // --- ФОНОВЫЕ ИЗОБРАЖЕНИЯ для ID ---
         const backgroundImages = [
-			'https://drive.google.com/thumbnail?id=1cBhAG3pmUta7yBC9WHAr-Q9_rI1Lkhdh&sz=w1920',		
+            'https://drive.google.com/thumbnail?id=1cBhAG3pmUta7yBC9WHAr-Q9_rI1Lkhdh&sz=w1920',		
             'https://drive.google.com/thumbnail?id=1LCYqsToxRl9ZLdzKTYedpJLyEZtTphGv&sz=w1920',
             'https://drive.google.com/thumbnail?id=1096u4Ad19OlL7icmwU8MVd5iLlASdXzh&sz=w1920',
             'https://drive.google.com/thumbnail?id=1EMtxoL3qxARCNK-ZATG91wJIGDAmUsJl&sz=w1920',
@@ -1306,27 +1270,20 @@ const galleryProjects = [
             'https://drive.google.com/thumbnail?id=1BSVMSTuSerNum-I_CcTJ3JGxlvm3pK9O&sz=w1920'
         ];
 
+        // --- Переменные состояния ---
         let currentIndex = 0;
         let backgroundInterval = null;
         let bgIndex = 0;
         const mainContent = document.getElementById('mainContent');
-
-        // Переменные для полноэкранного просмотра галереи
         let currentGalleryPageId = null;
         let currentGalleryIndex = 0;
         let galleryModal = document.getElementById('galleryModal');
         let modalImage = document.getElementById('modalGalleryImage');
-
-        // переменная для хранения текущей открытой галереи (основной, не модальной)
         let currentMainGalleryId = null;
-
-        // Таймер для авто-скрытия стрелок модалки
         let modalArrowsTimer = null;
-
-        // Для страницы Gallery: хранит суффикс активной галереи (1 или 2)
         let currentGallerySuffix = 1;
 
-        // Функция для предзагрузки изображения
+        // --- Функции предзагрузки и фона ---
         function preloadImage(src) {
             const img = new Image();
             img.src = src;
@@ -1335,7 +1292,6 @@ const galleryProjects = [
         function changeBackground() {
             bgIndex = (bgIndex + 1) % backgroundImages.length;
             mainContent.style.backgroundImage = `url('${backgroundImages[bgIndex]}')`;
-            // Предзагружаем следующее изображение
             const nextIndex = (bgIndex + 1) % backgroundImages.length;
             preloadImage(backgroundImages[nextIndex]);
         }
@@ -1344,7 +1300,6 @@ const galleryProjects = [
             if (backgroundInterval) clearInterval(backgroundInterval);
             bgIndex = 0;
             mainContent.style.backgroundImage = `url('${backgroundImages[0]}')`;
-            // Предзагружаем второе изображение (если есть)
             if (backgroundImages.length > 1) {
                 preloadImage(backgroundImages[1]);
             }
@@ -1359,19 +1314,15 @@ const galleryProjects = [
             mainContent.style.backgroundImage = 'none';
         }
 
-        // Функции для полноэкранного просмотра галереи (и обложек)
+        // --- Функции модального окна ---
         window.openGalleryModal = function(pageId, index) {
             currentGalleryPageId = pageId;
             currentGalleryIndex = index;
             updateModalImage();
             galleryModal.style.display = 'flex';
-            // Убираем класс hide-nav, так как это обычная галерея
             galleryModal.classList.remove('hide-nav');
-
-            // Показываем стрелки и запускаем таймер скрытия
             showModalArrows();
             startModalArrowsTimer();
-
             document.addEventListener('keydown', handleGalleryKey);
         };
 
@@ -1379,14 +1330,12 @@ const galleryProjects = [
             galleryModal.style.display = 'none';
             galleryModal.classList.remove('hide-nav');
             document.removeEventListener('keydown', handleGalleryKey);
-            // Очищаем таймер при закрытии
             if (modalArrowsTimer) {
                 clearTimeout(modalArrowsTimer);
                 modalArrowsTimer = null;
             }
         };
 
-        // Функции для управления видимостью стрелок модалки
         function showModalArrows() {
             const navs = document.querySelectorAll('.gallery-modal .modal-nav');
             navs.forEach(nav => nav.style.opacity = '0.75');
@@ -1402,7 +1351,6 @@ const galleryProjects = [
             modalArrowsTimer = setTimeout(hideModalArrows, 3000);
         }
 
-        // Обработчик движения мыши в модалке
         galleryModal.addEventListener('mousemove', function() {
             if (galleryModal.style.display === 'flex' && !galleryModal.classList.contains('hide-nav')) {
                 showModalArrows();
@@ -1413,7 +1361,7 @@ const galleryProjects = [
         window.prevModalImage = function() {
             if (!currentGalleryPageId) return;
             const images = galleryImages[currentGalleryPageId];
-            if (!images) return; // для обложек не работают стрелки
+            if (!images) return;
             currentGalleryIndex = (currentGalleryIndex - 1 + images.length) % images.length;
             updateModalImage();
         };
@@ -1429,25 +1377,20 @@ const galleryProjects = [
         function updateModalImage() {
             if (!currentGalleryPageId) return;
             if (currentGalleryPageId.startsWith('cover_')) {
-                // для обложек показываем реальное изображение
                 const imgSrc = galleryImages[currentGalleryPageId];
                 modalImage.src = imgSrc;
             } else {
                 const images = galleryImages[currentGalleryPageId];
-                // Подставляем реальный URL изображения
                 modalImage.src = images[currentGalleryIndex];
             }
         }
 
-        // обработчик клавиш для модального окна
         function handleGalleryKey(e) {
             if (e.key === 'Escape') {
                 closeGalleryModal();
             } else if (e.key === 'ArrowLeft') {
-                // Для обложек стрелки отключены (класс hide-nav)
                 if (!galleryModal.classList.contains('hide-nav')) {
                     prevModalImage();
-                    // При ручном переключении тоже показываем стрелки и перезапускаем таймер
                     showModalArrows();
                     startModalArrowsTimer();
                 }
@@ -1460,9 +1403,9 @@ const galleryProjects = [
             }
         }
 
-        // обработчик клавиш для основной галереи (не модальной)
+        // --- Обработчик клавиш для основной галереи ---
         function handleMainGalleryKey(e) {
-            if (galleryModal.style.display === 'flex') return; // не мешаем модалке
+            if (galleryModal.style.display === 'flex') return;
             if (!currentMainGalleryId) return;
             if (e.key === 'ArrowLeft') {
                 e.preventDefault();
@@ -1481,151 +1424,104 @@ const galleryProjects = [
             }
         }
 
-// Функция для рендеринга одной галереи (используется для Gallery)
-function renderSingleGallery(proj) {
-    const pageId = 'gallery'; //因为我们只在 Gallery 页面使用
-    const suffix = proj.id;
-    const images = proj.images;
-    const galleryId = `gallery-${pageId}-${suffix}`;
-    const mainId = `gallery-main-${pageId}-${suffix}`;
-    const thumbsId = `thumbs-${pageId}-${suffix}`;
-    const modalKey = `gallery_${suffix}`; // ключ для galleryImages
-
-    // Сохраняем изображения в galleryImages (глобально)
-    galleryImages[modalKey] = images;
-
-    const imagesHTML = images.map((img, i) => 
-        `<div class="thumb-item" data-index="${i}" onclick="setGalleryImage('${pageId}', ${i}, '${suffix}')" style="background-image: url('${img}'); background-size: cover; background-position: center;"></div>`
-    ).join('');
-
-    return `
-        <div class="gallery-container" id="${galleryId}">
-            <div class="gallery-main" onclick="openGalleryModal('${modalKey}', 0); currentGallerySuffix = ${suffix};">
-                <div class="gallery-main-image" id="${mainId}" style="background-image: url('${images[0]}'); background-size: cover; background-position: center;"></div>
-                <div class="gallery-arrow prev" onclick="event.stopPropagation(); prevGalleryImage('${pageId}', '${suffix}')"></div>
-                <div class="gallery-arrow next" onclick="event.stopPropagation(); nextGalleryImage('${pageId}', '${suffix}')"></div>
-            </div>
-            <div class="gallery-thumbs" id="${thumbsId}">
-                ${imagesHTML}
-            </div>
-            <div class="gallery-description">
-                <h3>${proj.projectTitle}</h3>
-                <h4>${proj.subtitle}</h4>
-                <p>${proj.description}</p>
-                <hr>
-            </div>
-        </div>
-    `;
-}
+        // --- Функция рендеринга одной галереи ---
+        function renderSingleGallery(proj) {
+            const pageId = 'gallery';
+            const suffix = proj.id;
+            const images = proj.images;
+            const modalKey = `gallery_${suffix}`;
+            galleryImages[modalKey] = images;
+            const imagesHTML = images.map((img, i) => 
+                `<div class="thumb-item" data-index="${i}" onclick="setGalleryImage('${pageId}', ${i}, '${suffix}')" style="background-image: url('${img}'); background-size: cover; background-position: center;"></div>`
+            ).join('');
+            return `
+                <div class="gallery-container" id="gallery-${pageId}-${suffix}">
+                    <div class="gallery-main" onclick="openGalleryModal('${modalKey}', 0); currentGallerySuffix = ${suffix};">
+                        <div class="gallery-main-image" id="gallery-main-${pageId}-${suffix}" style="background-image: url('${images[0]}'); background-size: cover; background-position: center;"></div>
+                        <div class="gallery-arrow prev" onclick="event.stopPropagation(); prevGalleryImage('${pageId}', '${suffix}')"></div>
+                        <div class="gallery-arrow next" onclick="event.stopPropagation(); nextGalleryImage('${pageId}', '${suffix}')"></div>
+                    </div>
+                    <div class="gallery-thumbs" id="thumbs-${pageId}-${suffix}">
+                        ${imagesHTML}
+                    </div>
+                    <div class="gallery-description">
+                        <h3>${proj.projectTitle}</h3>
+                        <h4>${proj.subtitle}</h4>
+                        <p>${proj.description}</p>
+                        <hr>
+                    </div>
+                </div>
+            `;
+        }
 		
+		        // --- Основная функция рендеринга страницы ---
         function renderPage(index) {
+            localStorage.setItem('lastPageIndex', index);
+
             const container = document.getElementById('page-content-container');
             const page = pages[index];
             
-            // Подсветка активного пункта основного меню
             document.querySelectorAll('.nav-item, .nav-subitem').forEach(el => el.classList.remove('active'));
-            // Снимаем активность с ссылки политики в подвале
             document.getElementById('nav-privacy').classList.remove('active');
 
             const navMap = {
-                0: 'nav-page0',    // ID
-                1: 'nav-page1',    // 3D_ART
-                2: 'nav-page2',    // Gallery
-                3: 'nav-page3',    // MUSIC_TRACKS
-                4: 'nav-page4',    // VIDEO_CLIPS
-                5: 'nav-page5',    // CONNECT
-                6: 'nav-privacy'   // Политика конфиденциальности (в подвале)
+                0: 'nav-page0',
+                1: 'nav-page1',
+                2: 'nav-page2',
+                3: 'nav-page3',
+                4: 'nav-page4',
+                5: 'nav-page5',
+                6: 'nav-privacy'
             };
 
             if (index === 6) {
                 document.getElementById('nav-privacy').classList.add('active');
             } else {
                 const activeId = navMap[index];
-                if (activeId) {
-                    document.getElementById(activeId).classList.add('active');
-                }
+                if (activeId) document.getElementById(activeId).classList.add('active');
             }
 
-            // Страница ID (пустая) + статус
             if (page.type === 'id') {
-                container.innerHTML = `
-                    <div class="id-page">
-                        <div class="id-status">The site is under development…</div>
-                    </div>
-                `;
+                container.innerHTML = `<div class="id-page"><div class="id-status">The site is under development…</div></div>`;
                 startBackgroundRotation();
             } 
-            // Страница 3D_ART (коллаж)
-			else if (page.type === 'collage') {
-				stopBackgroundRotation();
-				const images = galleryImages['3dart']; // массив из 48 ссылок
-				const items = images.map((src, idx) => {
-					// idx от 0 до 47, для handle3dArtClick нужен номер от 1 до 48
-					return `
-						<div class="collage-item" 
-							 onclick="handle3dArtClick(${idx + 1})"
-							 style="background-image: url('${src}'); 
-									background-size: cover; 
-									background-position: center;">
-							<!-- Можно оставить пустым или добавить подпись, если нужно -->
-						</div>
-					`;
-				}).join('');
-
-				container.innerHTML = `
-					<div class="page-headline">${page.title}</div>
-					<div class="collage-container">
-						${items}
-					</div>
-				`;
-			}
-        // Страница Gallery (3 галереи по 10 изображений)
-			else if (page.type === 'gallery') {
-				stopBackgroundRotation();
-
-				// Очищаем старые данные galleryImages (если нужно)
-				// galleryImages уже глобальный объект, мы просто добавим новые ключи
-
-				let html = `<div class="page-headline">${page.title}</div>`;
-
-				// Проходим по всем проектам и генерируем галереи
-				galleryProjects.forEach(proj => {
-					html += renderSingleGallery(proj);
-				});
-
-				container.innerHTML = html;
-
-				// Инициализируем состояния для каждой галереи
-				if (!window.galleryStates) window.galleryStates = {};
-				galleryProjects.forEach(proj => {
-					const stateKey = `${page.id}_${proj.id}`;
-					window.galleryStates[stateKey] = { currentImage: 0, images: proj.images };
-				});
-
-				// Устанавливаем активные миниатюры (первое изображение)
-				setTimeout(() => {
-					galleryProjects.forEach(proj => {
-						const thumbsContainer = document.getElementById(`thumbs-${page.id}-${proj.id}`);
-						if (thumbsContainer) {
-							const thumbItems = thumbsContainer.querySelectorAll('.thumb-item');
-							thumbItems.forEach(el => el.classList.remove('active-thumb'));
-							const firstThumb = thumbsContainer.querySelector('.thumb-item[data-index="0"]');
-							if (firstThumb) firstThumb.classList.add('active-thumb');
-						}
-					});
-				}, 0);
-
-				// Устанавливаем активную галерею по умолчанию (первая)
-				currentGallerySuffix = 1;
-				currentMainGalleryId = 'gallery';
-			}
-            // Страница MUSIC_TRACKS с индивидуальными данными
+            else if (page.type === 'collage') {
+                stopBackgroundRotation();
+                const images = galleryImages['3dart'];
+                const items = images.map((src, idx) => 
+                    `<div class="collage-item" onclick="handle3dArtClick(${idx + 1})" style="background-image: url('${src}'); background-size: cover; background-position: center;"></div>`
+                ).join('');
+                container.innerHTML = `<div class="page-headline">${page.title}</div><div class="collage-container">${items}</div>`;
+            }
+            else if (page.type === 'gallery') {
+                stopBackgroundRotation();
+                let html = `<div class="page-headline">${page.title}</div>`;
+                galleryProjects.forEach(proj => { html += renderSingleGallery(proj); });
+                container.innerHTML = html;
+                if (!window.galleryStates) window.galleryStates = {};
+                galleryProjects.forEach(proj => {
+                    const stateKey = `${page.id}_${proj.id}`;
+                    window.galleryStates[stateKey] = { currentImage: 0, images: proj.images };
+                });
+                setTimeout(() => {
+                    galleryProjects.forEach(proj => {
+                        const thumbsContainer = document.getElementById(`thumbs-${page.id}-${proj.id}`);
+                        if (thumbsContainer) {
+                            thumbsContainer.querySelectorAll('.thumb-item').forEach(el => el.classList.remove('active-thumb'));
+                            const firstThumb = thumbsContainer.querySelector('.thumb-item[data-index="0"]');
+                            if (firstThumb) firstThumb.classList.add('active-thumb');
+                        }
+                    });
+                }, 0);
+                currentGallerySuffix = 1;
+                currentMainGalleryId = 'gallery';
+            }
             else if (page.type === 'music_tracks') {
                 stopBackgroundRotation();
                 let tracksHTML = '';
                 for (let i = 0; i < trackData.length; i++) {
                     const track = trackData[i];
-                    const trackNumber = i + 1; // для id и модального окна
+                    const trackNumber = i + 1;
                     tracksHTML += `
                         <div class="track-item" id="track-${trackNumber}">
                             <div class="track-cover" 
@@ -1660,17 +1556,10 @@ function renderSingleGallery(proj) {
                         </div>
                     `;
                 }
-                container.innerHTML = `
-                    <div class="page-headline">${page.title}</div>
-                    <div class="track-list">
-                        ${tracksHTML}
-                    </div>
-                `;
+                container.innerHTML = `<div class="page-headline">${page.title}</div><div class="track-list">${tracksHTML}</div>`;
             }
-            // Страница VIDEO_CLIPS с индивидуальными данными
             else if (page.type === 'video_clips') {
                 stopBackgroundRotation();
-                
                 let clipsHTML = '';
                 for (let i = 0; i < videoData.length; i++) {
                     const video = videoData[i];
@@ -1693,24 +1582,12 @@ function renderSingleGallery(proj) {
                         </div>
                     `;
                 }
-                container.innerHTML = `
-                    <div class="page-headline">${page.title}</div>
-                    <div class="video-clip-list">
-                        ${clipsHTML}
-                    </div>
-                `;
+                container.innerHTML = `<div class="page-headline">${page.title}</div><div class="video-clip-list">${clipsHTML}</div>`;
             }
-            // Страница CONNECT
             else if (page.type === 'connect') {
                 stopBackgroundRotation();
-                container.innerHTML = `
-                    <div class="connect-page">
-                        <div class="page-headline">${page.title}</div>
-                        <a href="mailto:vitaly_kenin@mail.ru" class="connect-button">E-Mail: vitaly_kenin@mail.ru</a>
-                    </div>
-                `;
+                container.innerHTML = `<div class="connect-page"><div class="page-headline">${page.title}</div><a href="mailto:vitaly_kenin@mail.ru" class="connect-button">vitaly_kenin@mail.ru</a></div>`;
             }
-            // Страница политики конфиденциальности (обновлённый текст)
             else if (page.type === 'privacy') {
                 stopBackgroundRotation();
                 container.innerHTML = `
@@ -1758,25 +1635,23 @@ function renderSingleGallery(proj) {
             currentIndex = index;
         }
 
-        // Функция для открытия модального окна с обложкой (без стрелок)
+        // --- Функция для открытия модального окна с обложкой ---
         function openCoverModal(index) {
             currentGalleryPageId = `cover_${index}`;
             currentGalleryIndex = index;
-            // Сохраняем ссылку на изображение из trackData
             galleryImages[`cover_${index}`] = trackData[index-1].cover;
             updateModalImage();
             galleryModal.style.display = 'flex';
-            // Добавляем класс hide-nav, чтобы скрыть стрелки
             galleryModal.classList.add('hide-nav');
             document.addEventListener('keydown', handleGalleryKey);
         }
 
-        // Обработка клика по элементу 3D_ART
+        // --- Обработка клика по элементу 3D_ART ---
         window.handle3dArtClick = function(itemNumber) {
             openGalleryModal('3dart', itemNumber - 1);
         };
 
-        // Функция для кнопки "Поделиться" на MUSIC_TRACKS
+        // --- Функция для кнопки "Поделиться" ---
         window.shareTrack = function(trackNumber) {
             const url = new URL(window.location.href);
             url.hash = `#track-${trackNumber}`;
@@ -1787,42 +1662,40 @@ function renderSingleGallery(proj) {
             });
         };
 
-        // Функции для навигации по галерее (с поддержкой суффикса для Gallery)
-		window.setGalleryImage = function(pageId, imgIndex, suffix = '') {
-			if (pageId === 'gallery') {
-				const stateKey = suffix ? `${pageId}_${suffix}` : pageId;
-				const state = window.galleryStates[stateKey];
-				if (!state) return;
-				state.currentImage = imgIndex;
-				const mainDiv = document.getElementById(`gallery-main-${pageId}-${suffix}`);
-				if (mainDiv) {
-					const imgSrc = state.images[imgIndex];
-					// Устанавливаем фон как реальное изображение
-					mainDiv.style.backgroundImage = `url('${imgSrc}')`;
-					// Убираем текстовое содержимое
-					mainDiv.textContent = '';
-				}
-				document.querySelectorAll(`#thumbs-${pageId}-${suffix} .thumb-item`).forEach(el => {
-					el.classList.remove('active-thumb');
-					if (el.dataset.index == imgIndex) el.classList.add('active-thumb');
-				});
-				currentGallerySuffix = parseInt(suffix);
-			} else {
-				const state = window.galleryStates[pageId];
-				if (!state) return;
-				state.currentImage = imgIndex;
-				const mainDiv = document.getElementById(`gallery-main-${pageId}`);
-				if (mainDiv) {
-					const imgSrc = state.images[imgIndex];
-					mainDiv.style.backgroundImage = `url('${imgSrc}')`;
-					mainDiv.textContent = '';
-				}
-				document.querySelectorAll(`#thumbs-${pageId} .thumb-item`).forEach(el => {
-					el.classList.remove('active-thumb');
-					if (el.dataset.index == imgIndex) el.classList.add('active-thumb');
-				});
-			}
-		};
+        // --- Функции для навигации по галерее ---
+        window.setGalleryImage = function(pageId, imgIndex, suffix = '') {
+            if (pageId === 'gallery') {
+                const stateKey = suffix ? `${pageId}_${suffix}` : pageId;
+                const state = window.galleryStates[stateKey];
+                if (!state) return;
+                state.currentImage = imgIndex;
+                const mainDiv = document.getElementById(`gallery-main-${pageId}-${suffix}`);
+                if (mainDiv) {
+                    const imgSrc = state.images[imgIndex];
+                    mainDiv.style.backgroundImage = `url('${imgSrc}')`;
+                    mainDiv.textContent = '';
+                }
+                document.querySelectorAll(`#thumbs-${pageId}-${suffix} .thumb-item`).forEach(el => {
+                    el.classList.remove('active-thumb');
+                    if (el.dataset.index == imgIndex) el.classList.add('active-thumb');
+                });
+                currentGallerySuffix = parseInt(suffix);
+            } else {
+                const state = window.galleryStates[pageId];
+                if (!state) return;
+                state.currentImage = imgIndex;
+                const mainDiv = document.getElementById(`gallery-main-${pageId}`);
+                if (mainDiv) {
+                    const imgSrc = state.images[imgIndex];
+                    mainDiv.style.backgroundImage = `url('${imgSrc}')`;
+                    mainDiv.textContent = '';
+                }
+                document.querySelectorAll(`#thumbs-${pageId} .thumb-item`).forEach(el => {
+                    el.classList.remove('active-thumb');
+                    if (el.dataset.index == imgIndex) el.classList.add('active-thumb');
+                });
+            }
+        };
 
         window.prevGalleryImage = function(pageId, suffix = '') {
             const stateKey = suffix ? `${pageId}_${suffix}` : pageId;
@@ -1842,33 +1715,41 @@ function renderSingleGallery(proj) {
             setGalleryImage(pageId, newIndex, suffix);
         };
 
-        // Обработка кликов по ссылкам меню
-        document.querySelectorAll('.side-panel a:not(.social-icons a)').forEach(link => {
+        // --- Функция скрытия меню на мобильных ---
+        function hideMenuOnMobile() {
+            if (window.innerWidth <= 700) {
+                document.body.classList.add('menu-hidden');
+                updateMenuArrow();
+            }
+        }
+
+        // --- Обработчики навигации ---
+        document.querySelectorAll('.side-panel a').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const href = link.getAttribute('href');
                 if (href === 'page0.html') renderPage(0);
-                else if (href === 'page1.html') renderPage(1);  // 3D_ART
-                else if (href === 'page2.html') renderPage(2);  // Gallery
-                else if (href === 'page3.html') renderPage(3);  // MUSIC_TRACKS
-                else if (href === 'page4.html') renderPage(4);  // VIDEO_CLIPS
-                else if (href === 'page5.html') renderPage(5);  // CONNECT
-                // Политика конфиденциальности в меню отсутствует
+                else if (href === 'page1.html') renderPage(1);
+                else if (href === 'page2.html') renderPage(2);
+                else if (href === 'page3.html') renderPage(3);
+                else if (href === 'page4.html') renderPage(4);
+                else if (href === 'page5.html') renderPage(5);
+                hideMenuOnMobile();
             });
         });
 
-        // Обработка клика по ссылке "Политика конфиденциальности" в подвале (индекс 6)
         document.getElementById('nav-privacy').addEventListener('click', (e) => {
             e.preventDefault();
             renderPage(6);
+            hideMenuOnMobile();
         });
 
-        // Логотип ведёт на ID
         document.getElementById('logoLink').addEventListener('click', () => {
             renderPage(0);
+            hideMenuOnMobile();
         });
 
-        // Управление меню (гамбургер и стрелка)
+        // --- Управление меню (гамбургер, стрелка) ---
         const toggleBtn = document.getElementById('menuToggle');
         const menuArrow = document.getElementById('menuArrow');
         const body = document.body;
@@ -1882,55 +1763,41 @@ function renderSingleGallery(proj) {
         menuArrow.addEventListener('click', toggleMenu);
 
         function updateMenuArrow() {
-            if (body.classList.contains('menu-hidden')) {
-                menuArrow.textContent = '▶';
-            } else {
-                menuArrow.textContent = '◀';
-            }
+            menuArrow.textContent = body.classList.contains('menu-hidden') ? '▶' : '◀';
         }
 
         function setInitialMenuState() {
-            if (window.innerWidth <= 700) {
-                body.classList.add('menu-hidden');
-            } else {
-                body.classList.remove('menu-hidden');
-            }
+            if (window.innerWidth <= 700) body.classList.add('menu-hidden');
+            else body.classList.remove('menu-hidden');
             updateMenuArrow();
         }
         setInitialMenuState();
         window.addEventListener('resize', setInitialMenuState);
 
-        // Инициализация: показываем ID
-        renderPage(0);
+        // --- Защита изображений ---
+        document.addEventListener('dragstart', function(e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
+        document.addEventListener('contextmenu', function(e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
 
-        // Глобальный обработчик клавиш для основной галереи
+        // --- Восстановление последней страницы ---
+        const savedIndex = localStorage.getItem('lastPageIndex');
+        if (savedIndex !== null && savedIndex >= 0 && savedIndex < pages.length) {
+            renderPage(parseInt(savedIndex));
+        } else {
+            renderPage(0);
+        }
+
+        // --- Обработчик клавиш для галереи ---
         document.addEventListener('keydown', handleMainGalleryKey);
 
-        // Дополнительная защита изображений
-        document.addEventListener('dragstart', function(e) {
-            if (e.target.tagName === 'IMG') {
-                e.preventDefault();
-                return false;
-            }
-        });
-
-        document.addEventListener('contextmenu', function(e) {
-            if (e.target.tagName === 'IMG') {
-                e.preventDefault();
-                return false;
-            }
-        });
-
-        // При загрузке страницы проверяем, есть ли якорь для трека, и прокручиваем к нему
+        // --- Прокрутка к треку по якорю ---
         window.addEventListener('load', function() {
             if (window.location.hash && window.location.hash.startsWith('#track-')) {
-                const id = window.location.hash;
-                const element = document.querySelector(id);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
+                const element = document.querySelector(window.location.hash);
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
             }
         });
     </script>
 </body>
 </html>
+		
+		
