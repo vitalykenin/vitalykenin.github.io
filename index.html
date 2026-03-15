@@ -1221,15 +1221,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         // Для страницы Gallery: хранит суффикс активной галереи (1 или 2)
         let currentGallerySuffix = 1;
 
+        // Функция для предзагрузки изображения
+        function preloadImage(src) {
+            const img = new Image();
+            img.src = src;
+        }
+
         function changeBackground() {
             bgIndex = (bgIndex + 1) % backgroundImages.length;
             mainContent.style.backgroundImage = `url('${backgroundImages[bgIndex]}')`;
+            // Предзагружаем следующее изображение
+            const nextIndex = (bgIndex + 1) % backgroundImages.length;
+            preloadImage(backgroundImages[nextIndex]);
         }
 
         function startBackgroundRotation() {
             if (backgroundInterval) clearInterval(backgroundInterval);
             bgIndex = 0;
             mainContent.style.backgroundImage = `url('${backgroundImages[0]}')`;
+            // Предзагружаем второе изображение (если есть)
+            if (backgroundImages.length > 1) {
+                preloadImage(backgroundImages[1]);
+            }
             backgroundInterval = setInterval(changeBackground, 8000);
         }
 
