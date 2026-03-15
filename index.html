@@ -1520,14 +1520,52 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 					</div>
 				`;
 			}
-		// Страница Gallery (3 галереи по 10 изображений)
+        // Страница Gallery (3 галереи по 10 изображений)
         else if (page.type === 'gallery') {
             stopBackgroundRotation();
             
-            // Массивы для трёх галерей
-            const gallery1Images = Array.from({ length: 10 }, (_, i) => `img/03-gallery/1/${i + 1}.jpg`);
-            const gallery2Images = Array.from({ length: 10 }, (_, i) => `img/03-gallery/2/${i + 1}.jpg`);
-            const gallery3Images = Array.from({ length: 10 }, (_, i) => `img/03-gallery/3/${i + 1}.jpg`);
+            // --- Массивы с прямыми ссылками на Google Drive ---
+            // Галерея 1 (замените на свои ID)
+            const gallery1Images = [
+                'https://drive.google.com/thumbnail?id=1RIL_UjOLU7q2ChkIpfm6Q1Urd3YvauLX&sz=w1200',
+                'https://drive.google.com/thumbnail?id=1rno8yzKULTntSp6GS4TuOc31vyU7E2us&sz=w1200',
+                'https://drive.google.com/thumbnail?id=16cOzvcg25D7Wjwk7JG51EmGL-NpMv65z&sz=w1200',
+                'https://drive.google.com/thumbnail?id=1bjjiuzfwAK9gwGyd6w1rUGpvZayRZwo2&sz=w1200',
+                'https://drive.google.com/thumbnail?id=1XYhQPsKwu25onGf5lNwEpq6iEh4dPrl5&sz=w1200',
+                'https://drive.google.com/thumbnail?id=15xliHptKg9UjWbG1mqKv90aziL9OgA0Q&sz=w1200',
+                'https://drive.google.com/thumbnail?id=1tHrva3bb9nt1PcWsw6FwkRSbbGUInJvo&sz=w1200',
+                'https://drive.google.com/thumbnail?id=1cJr1qJZf01FrZ_EUPiEhyCjh70T1lfRP&sz=w1200',
+                'https://drive.google.com/thumbnail?id=1hYUxzyhXY3SUQnEM7A4MFuCO4RdYuQSh&sz=w1200',
+                'https://drive.google.com/thumbnail?id=1qh-whrn78gVQM-1j5R2in2bgY4dmY_Oy&sz=w1200'
+            ];
+
+            // Галерея 2
+            const gallery2Images = [
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_1&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_2&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_3&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_4&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_5&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_6&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_7&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_8&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_9&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_10&sz=w1200'
+            ];
+
+            // Галерея 3
+            const gallery3Images = [
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_1&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_2&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_3&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_4&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_5&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_6&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_7&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_8&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_9&sz=w1200',
+                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_10&sz=w1200'
+            ];
             
             // Сохраняем в galleryImages для модального окна
             galleryImages['gallery_1'] = gallery1Images;
