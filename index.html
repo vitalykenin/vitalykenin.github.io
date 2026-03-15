@@ -1235,7 +1235,63 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 text: 'Текст десятого видео.'
             }
         ];
-
+		// --- ДАННЫЕ ДЛЯ ГАЛЕРЕЙ (ПРОЕКТОВ) ---
+const galleryProjects = [
+    {
+        id: 1,
+        projectTitle: 'Название проекта 1 (2026)',
+        subtitle: 'Проект 1',
+        description: 'Здесь будет развернутое описание проекта 1: использованные техники, концепция, особенности визуализации и результаты.',
+        images: [
+            'https://drive.google.com/thumbnail?id=1RIL_UjOLU7q2ChkIpfm6Q1Urd3YvauLX&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1rno8yzKULTntSp6GS4TuOc31vyU7E2us&sz=w1200',
+            'https://drive.google.com/thumbnail?id=16cOzvcg25D7Wjwk7JG51EmGL-NpMv65z&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1bjjiuzfwAK9gwGyd6w1rUGpvZayRZwo2&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1XYhQPsKwu25onGf5lNwEpq6iEh4dPrl5&sz=w1200',
+            'https://drive.google.com/thumbnail?id=15xliHptKg9UjWbG1mqKv90aziL9OgA0Q&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1tHrva3bb9nt1PcWsw6FwkRSbbGUInJvo&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1cJr1qJZf01FrZ_EUPiEhyCjh70T1lfRP&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1hYUxzyhXY3SUQnEM7A4MFuCO4RdYuQSh&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1qh-whrn78gVQM-1j5R2in2bgY4dmY_Oy&sz=w1200'
+        ]
+    },
+    {
+        id: 2,
+        projectTitle: 'Название проекта 2 (2026)',
+        subtitle: 'Проект 2',
+        description: 'Подробное описание второго проекта. Здесь можно написать о технике, концепции и результате.',
+        images: [
+            'https://drive.google.com/thumbnail?id=1RIL_UjOLU7q2ChkIpfm6Q1Urd3YvauLX&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1rno8yzKULTntSp6GS4TuOc31vyU7E2us&sz=w1200',
+            'https://drive.google.com/thumbnail?id=16cOzvcg25D7Wjwk7JG51EmGL-NpMv65z&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1bjjiuzfwAK9gwGyd6w1rUGpvZayRZwo2&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1XYhQPsKwu25onGf5lNwEpq6iEh4dPrl5&sz=w1200',
+            'https://drive.google.com/thumbnail?id=15xliHptKg9UjWbG1mqKv90aziL9OgA0Q&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1tHrva3bb9nt1PcWsw6FwkRSbbGUInJvo&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1cJr1qJZf01FrZ_EUPiEhyCjh70T1lfRP&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1hYUxzyhXY3SUQnEM7A4MFuCO4RdYuQSh&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1qh-whrn78gVQM-1j5R2in2bgY4dmY_Oy&sz=w1200'
+        ]
+    },
+    {
+        id: 3,
+        projectTitle: 'Название проекта 3 (2026)',
+        subtitle: 'Проект 3',
+        description: 'Описание третьего проекта. Абсолютно другой текст, уникальный для этой галереи.',
+        images: [
+            'https://drive.google.com/thumbnail?id=1RIL_UjOLU7q2ChkIpfm6Q1Urd3YvauLX&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1rno8yzKULTntSp6GS4TuOc31vyU7E2us&sz=w1200',
+            'https://drive.google.com/thumbnail?id=16cOzvcg25D7Wjwk7JG51EmGL-NpMv65z&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1bjjiuzfwAK9gwGyd6w1rUGpvZayRZwo2&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1XYhQPsKwu25onGf5lNwEpq6iEh4dPrl5&sz=w1200',
+            'https://drive.google.com/thumbnail?id=15xliHptKg9UjWbG1mqKv90aziL9OgA0Q&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1tHrva3bb9nt1PcWsw6FwkRSbbGUInJvo&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1cJr1qJZf01FrZ_EUPiEhyCjh70T1lfRP&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1hYUxzyhXY3SUQnEM7A4MFuCO4RdYuQSh&sz=w1200',
+            'https://drive.google.com/thumbnail?id=1qh-whrn78gVQM-1j5R2in2bgY4dmY_Oy&sz=w1200'
+        ]
+    }
+];
         // Фоновые изображения для ID
         const backgroundImages = [
 			'https://drive.google.com/thumbnail?id=1cBhAG3pmUta7yBC9WHAr-Q9_rI1Lkhdh&sz=w1920',		
@@ -1425,39 +1481,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             }
         }
 
-        // Функция для рендеринга одной галереи (используется для Gallery)
-        function renderSingleGallery(container, pageId, suffix, images, title) {
-            const galleryId = `gallery-${pageId}-${suffix}`;
-            const mainId = `gallery-main-${pageId}-${suffix}`;
-            const thumbsId = `thumbs-${pageId}-${suffix}`;
-            const modalKey = `gallery_${suffix}`; // ключ для galleryImages
+// Функция для рендеринга одной галереи (используется для Gallery)
+function renderSingleGallery(proj) {
+    const pageId = 'gallery'; //因为我们只在 Gallery 页面使用
+    const suffix = proj.id;
+    const images = proj.images;
+    const galleryId = `gallery-${pageId}-${suffix}`;
+    const mainId = `gallery-main-${pageId}-${suffix}`;
+    const thumbsId = `thumbs-${pageId}-${suffix}`;
+    const modalKey = `gallery_${suffix}`; // ключ для galleryImages
 
-            // Сохраняем изображения в galleryImages
-            galleryImages[modalKey] = images;
+    // Сохраняем изображения в galleryImages (глобально)
+    galleryImages[modalKey] = images;
 
-            const imagesHTML = images.map((img, i) => 
-                `<div class="thumb-item" data-index="${i}" onclick="setGalleryImage('${pageId}', ${i}, '${suffix}')" style="background-image: url('${img}'); background-size: cover; background-position: center;"></div>`
-            ).join('');
+    const imagesHTML = images.map((img, i) => 
+        `<div class="thumb-item" data-index="${i}" onclick="setGalleryImage('${pageId}', ${i}, '${suffix}')" style="background-image: url('${img}'); background-size: cover; background-position: center;"></div>`
+    ).join('');
 
-            return `
-                <div class="gallery-container" id="${galleryId}">
-                    <div class="gallery-main" onclick="openGalleryModal('${modalKey}', 0); currentGallerySuffix = ${suffix};">
-                        <div class="gallery-main-image" id="${mainId}" style="background-image: url('${images[0]}'); background-size: cover; background-position: center;"></div>
-                        <div class="gallery-arrow prev" onclick="event.stopPropagation(); prevGalleryImage('${pageId}', '${suffix}')"></div>
-                        <div class="gallery-arrow next" onclick="event.stopPropagation(); nextGalleryImage('${pageId}', '${suffix}')"></div>
-                    </div>
-                    <div class="gallery-thumbs" id="${thumbsId}">
-                        ${imagesHTML}
-                    </div>
-                    <div class="gallery-description">
-                        <h3>Название проекта (2026)</h3>
-                        <h4>${title}</h4>
-                        <p>Здесь будет развернутое описание проекта: использованные техники, концепция, особенности визуализации и результаты.</p>
-                        <hr>
-                    </div>
-                </div>
-            `;
-        }
+    return `
+        <div class="gallery-container" id="${galleryId}">
+            <div class="gallery-main" onclick="openGalleryModal('${modalKey}', 0); currentGallerySuffix = ${suffix};">
+                <div class="gallery-main-image" id="${mainId}" style="background-image: url('${images[0]}'); background-size: cover; background-position: center;"></div>
+                <div class="gallery-arrow prev" onclick="event.stopPropagation(); prevGalleryImage('${pageId}', '${suffix}')"></div>
+                <div class="gallery-arrow next" onclick="event.stopPropagation(); nextGalleryImage('${pageId}', '${suffix}')"></div>
+            </div>
+            <div class="gallery-thumbs" id="${thumbsId}">
+                ${imagesHTML}
+            </div>
+            <div class="gallery-description">
+                <h3>${proj.projectTitle}</h3>
+                <h4>${proj.subtitle}</h4>
+                <p>${proj.description}</p>
+                <hr>
+            </div>
+        </div>
+    `;
+}
 		
         function renderPage(index) {
             const container = document.getElementById('page-content-container');
@@ -1521,85 +1580,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				`;
 			}
         // Страница Gallery (3 галереи по 10 изображений)
-        else if (page.type === 'gallery') {
-            stopBackgroundRotation();
-            
-            // --- Массивы с прямыми ссылками на Google Drive ---
-            // Галерея 1 (замените на свои ID)
-            const gallery1Images = [
-                'https://drive.google.com/thumbnail?id=1RIL_UjOLU7q2ChkIpfm6Q1Urd3YvauLX&sz=w1200',
-                'https://drive.google.com/thumbnail?id=1rno8yzKULTntSp6GS4TuOc31vyU7E2us&sz=w1200',
-                'https://drive.google.com/thumbnail?id=16cOzvcg25D7Wjwk7JG51EmGL-NpMv65z&sz=w1200',
-                'https://drive.google.com/thumbnail?id=1bjjiuzfwAK9gwGyd6w1rUGpvZayRZwo2&sz=w1200',
-                'https://drive.google.com/thumbnail?id=1XYhQPsKwu25onGf5lNwEpq6iEh4dPrl5&sz=w1200',
-                'https://drive.google.com/thumbnail?id=15xliHptKg9UjWbG1mqKv90aziL9OgA0Q&sz=w1200',
-                'https://drive.google.com/thumbnail?id=1tHrva3bb9nt1PcWsw6FwkRSbbGUInJvo&sz=w1200',
-                'https://drive.google.com/thumbnail?id=1cJr1qJZf01FrZ_EUPiEhyCjh70T1lfRP&sz=w1200',
-                'https://drive.google.com/thumbnail?id=1hYUxzyhXY3SUQnEM7A4MFuCO4RdYuQSh&sz=w1200',
-                'https://drive.google.com/thumbnail?id=1qh-whrn78gVQM-1j5R2in2bgY4dmY_Oy&sz=w1200'
-            ];
+			else if (page.type === 'gallery') {
+				stopBackgroundRotation();
 
-            // Галерея 2
-            const gallery2Images = [
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_1&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_2&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_3&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_4&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_5&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_6&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_7&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_8&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_9&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_2_10&sz=w1200'
-            ];
+				// Очищаем старые данные galleryImages (если нужно)
+				// galleryImages уже глобальный объект, мы просто добавим новые ключи
 
-            // Галерея 3
-            const gallery3Images = [
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_1&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_2&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_3&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_4&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_5&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_6&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_7&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_8&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_9&sz=w1200',
-                'https://drive.google.com/thumbnail?id=ВАШ_ID_3_10&sz=w1200'
-            ];
-            
-            // Сохраняем в galleryImages для модального окна
-            galleryImages['gallery_1'] = gallery1Images;
-            galleryImages['gallery_2'] = gallery2Images;
-            galleryImages['gallery_3'] = gallery3Images;
-            
-            let html = `<div class="page-headline">${page.title}</div>`;
+				let html = `<div class="page-headline">${page.title}</div>`;
 
-            // Создаём три галереи
-            html += renderSingleGallery(container, page.id, 1, gallery1Images, 'Проект 1');
-            html += renderSingleGallery(container, page.id, 2, gallery2Images, 'Проект 2');
-            html += renderSingleGallery(container, page.id, 3, gallery3Images, 'Проект 3');
+				// Проходим по всем проектам и генерируем галереи
+				galleryProjects.forEach(proj => {
+					html += renderSingleGallery(proj);
+				});
 
-            container.innerHTML = html;
+				container.innerHTML = html;
 
-            // Инициализируем состояния для 3 галерей
-            if (!window.galleryStates) window.galleryStates = {};
-            window.galleryStates[`${page.id}_1`] = { currentImage: 0, images: gallery1Images };
-            window.galleryStates[`${page.id}_2`] = { currentImage: 0, images: gallery2Images };
-            window.galleryStates[`${page.id}_3`] = { currentImage: 0, images: gallery3Images };
+				// Инициализируем состояния для каждой галереи
+				if (!window.galleryStates) window.galleryStates = {};
+				galleryProjects.forEach(proj => {
+					const stateKey = `${page.id}_${proj.id}`;
+					window.galleryStates[stateKey] = { currentImage: 0, images: proj.images };
+				});
 
-            // Устанавливаем активные миниатюры
-            setTimeout(() => {
-                for (let g = 1; g <= 3; g++) {
-                    document.querySelectorAll(`#thumbs-${page.id}-${g} .thumb-item`).forEach(el => el.classList.remove('active-thumb'));
-                    const activeThumb = document.querySelector(`#thumbs-${page.id}-${g} .thumb-item[data-index="0"]`);
-                    if (activeThumb) activeThumb.classList.add('active-thumb');
-                }
-            }, 0);
+				// Устанавливаем активные миниатюры (первое изображение)
+				setTimeout(() => {
+					galleryProjects.forEach(proj => {
+						const thumbsContainer = document.getElementById(`thumbs-${page.id}-${proj.id}`);
+						if (thumbsContainer) {
+							const thumbItems = thumbsContainer.querySelectorAll('.thumb-item');
+							thumbItems.forEach(el => el.classList.remove('active-thumb'));
+							const firstThumb = thumbsContainer.querySelector('.thumb-item[data-index="0"]');
+							if (firstThumb) firstThumb.classList.add('active-thumb');
+						}
+					});
+				}, 0);
 
-            // Устанавливаем активную галерею по умолчанию (первая)
-            currentGallerySuffix = 1;
-            currentMainGalleryId = 'gallery';
-        }
+				// Устанавливаем активную галерею по умолчанию (первая)
+				currentGallerySuffix = 1;
+				currentMainGalleryId = 'gallery';
+			}
             // Страница MUSIC_TRACKS с индивидуальными данными
             else if (page.type === 'music_tracks') {
                 stopBackgroundRotation();
